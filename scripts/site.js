@@ -109,31 +109,31 @@ const projects={
 portrait:{
 title:"Portrait",
 images:[
-"참조/이미지-03.jpeg",
-"참조/이미지-07.jpeg",
-"참조/이미지-01.jpeg"
+"image/image03.jpeg",
+"image/image07.jpeg",
+"image/image01.jpeg"
 ]
 },
 
 actor:{
 title:"Actor Profile",
 images:[
-"참조/이미지-04.jpeg",
-"참조/이미지-11.jpg"
+"image/image04.jpeg",
+"image/image11.jpg"
 ]
 },
 
 professional:{
 title:"Professional",
 images:[
-"참조/이미지-05.jpeg"
+"image/image05.jpeg"
 ]
 },
 
 editorial:{
 title:"Editorial",
 images:[
-"참조/이미지-06.jpeg"
+"image/image06.jpeg"
 ]
 }
 
