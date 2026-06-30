@@ -109,16 +109,16 @@ const projects={
 portrait:{
 title:"Portrait",
 images:[
-"image/image03.jpeg",
-"image/image07.jpeg",
-"image/image01.jpeg"
+"image/image03.jpg",
+"image/image07.jpg",
+"image/image01.jpg"
 ]
 },
 
 actor:{
 title:"Actor Profile",
 images:[
-"image/image04.jpeg",
+"image/image04.jpg",
 "image/image11.jpg"
 ]
 },
@@ -126,14 +126,14 @@ images:[
 professional:{
 title:"Professional",
 images:[
-"image/image05.jpeg"
+"image/image05.jpg"
 ]
 },
 
 editorial:{
 title:"Editorial",
 images:[
-"image/image06.jpeg"
+"image/image06.jpg"
 ]
 }
 
