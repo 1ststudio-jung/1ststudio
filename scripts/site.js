@@ -193,6 +193,19 @@ const projects = {
 	"image/nom04/nom017.jpg",
 	"image/nom04/nom018.jpg",
 	"image/nom04/nom019.jpg",
+    ],
+
+	nom05: [
+	"image/nom05/nom01.jpg",
+	"image/nom05/nom02.jpg",
+	"image/nom05/nom03.jpg",
+	"image/nom05/nom04.jpg",
+	"image/nom05/nom05.jpg",
+	"image/nom05/nom06.jpg",
+	"image/nom05/nom07.jpg",
+	"image/nom05/nom08.jpg",
+	"image/nom05/nom09.jpg",
+	"image/nom05/nom010.jpg"
     ]
 
 };
