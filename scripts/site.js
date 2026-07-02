@@ -205,7 +205,7 @@ const projects = {
 	"image/nom05/nom07.jpg",
 	"image/nom05/nom08.jpg",
 	"image/nom05/nom09.jpg",
-	"image/nom05/nom010.jpg"
+	"image/nom05/nom010.jpg",
     ],
 
 	nom06: [
@@ -223,7 +223,7 @@ const projects = {
 	"image/nom06/nom012.jpg",
 	"image/nom06/nom013.jpg",
 	"image/nom06/nom014.jpg",
-	"image/nom06/nom015.jpg",
+	"image/nom06/nom015.jpg"
     ]
 
 };
