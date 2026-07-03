@@ -236,7 +236,7 @@ img { display:block;
 
 .portfolio-section {
   padding: clamp(64px, 9vw, 120px) clamp(24px, 10vw, 128px);
-  background: linear-gradient(180deg, var(--paper), #f4f0e9);
+  background: #ffffff;
   scroll-margin-top: 80px;
 }
 .section-heading {
