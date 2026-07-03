@@ -311,11 +311,8 @@ const projects = {
 	"image/nom12/nom018.jpg",
 	"image/nom12/nom019.jpg",
 	"image/nom12/nom020.jpg"
-    ],
+    ]
 
-
-
-	
 };
 
 
