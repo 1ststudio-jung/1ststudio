@@ -1525,18 +1525,28 @@ CTA
 
     /* Header */
 
-    .site-header{
-        padding:16px 20px;
-    }
+   .site-header{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:16px 20px;
+    gap:14px;
+}
+
+.main-nav{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px 20px;
+    overflow:visible;
+    white-space:normal;
+}
 
     .brand strong{
         font-size:11px;
         letter-spacing:.15em;
     }
 
-    .main-nav{
-        gap:18px;
-    }
 
     .main-nav a,
     .main-nav button{
