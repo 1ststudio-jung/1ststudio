@@ -206,8 +206,116 @@ const projects = {
 	"image/nom05/nom08.jpg",
 	"image/nom05/nom09.jpg",
 	"image/nom05/nom010.jpg"
-    ]
+    ],
 
+	nom06: [
+	"image/nom06/nom01.jpg",
+	"image/nom06/nom02.jpg",
+	"image/nom06/nom03.jpg",
+	"image/nom06/nom04.jpg",
+	"image/nom06/nom05.jpg",
+	"image/nom06/nom06.jpg",
+	"image/nom06/nom07.jpg",
+	"image/nom06/nom08.jpg",
+	"image/nom06/nom09.jpg",
+	"image/nom06/nom010.jpg",
+	"image/nom06/nom011.jpg",
+	"image/nom06/nom012.jpg",
+	"image/nom06/nom013.jpg",
+	"image/nom06/nom014.jpg",
+	"image/nom06/nom015.jpg"
+    ],
+
+	nom07: [
+	"image/nom07/nom02.jpg",
+	"image/nom07/nom03.jpg",
+	"image/nom07/nom04.jpg",
+	"image/nom07/nom05.jpg",
+	"image/nom07/nom06.jpg",
+	"image/nom07/nom07.jpg",
+	"image/nom07/nom08.jpg",
+	"image/nom07/nom09.jpg"
+    ],
+
+	nom08: [
+	"image/nom08/nom02.jpg",
+	"image/nom08/nom03.jpg",
+	"image/nom08/nom04.jpg",
+	"image/nom08/nom05.jpg",
+	"image/nom08/nom06.jpg",
+	"image/nom08/nom07.jpg",
+	"image/nom08/nom08.jpg",
+	"image/nom08/nom09.jpg",
+	"image/nom08/nom010.jpg"
+    ],
+
+	nom09: [
+	"image/nom09/nom02.jpg",
+	"image/nom09/nom03.jpg",
+	"image/nom09/nom04.jpg",
+	"image/nom09/nom05.jpg",
+	"image/nom09/nom06.jpg",
+	"image/nom09/nom07.jpg",
+	"image/nom09/nom08.jpg"
+    ],
+
+	nom10: [
+	"image/nom10/nom01.jpg",
+	"image/nom10/nom02.jpg",
+	"image/nom10/nom03.jpg",
+	"image/nom10/nom04.jpg",
+	"image/nom10/nom05.jpg",
+	"image/nom10/nom06.jpg",
+	"image/nom10/nom07.jpg",
+	"image/nom10/nom08.jpg",
+	"image/nom10/nom09.jpg",
+	"image/nom10/nom010.jpg",
+	"image/nom10/nom011.jpg"
+    ],
+
+	nom11: [
+	"image/nom11/nom01.jpg",
+	"image/nom11/nom02.jpg",
+	"image/nom11/nom03.jpg",
+	"image/nom11/nom04.jpg",
+	"image/nom11/nom05.jpg",
+	"image/nom11/nom06.jpg",
+	"image/nom11/nom07.jpg",
+	"image/nom11/nom08.jpg",
+	"image/nom11/nom09.jpg",
+	"image/nom11/nom010.jpg",
+	"image/nom11/nom011.jpg",
+	"image/nom11/nom012.jpg",
+	"image/nom11/nom013.jpg",
+	"image/nom11/nom014.jpg"
+    ],
+
+	nom12: [
+	"image/nom12/nom01.jpg",
+	"image/nom12/nom02.jpg",
+	"image/nom12/nom03.jpg",
+	"image/nom12/nom04.jpg",
+	"image/nom12/nom05.jpg",
+	"image/nom12/nom06.jpg",
+	"image/nom12/nom07.jpg",
+	"image/nom12/nom08.jpg",
+	"image/nom12/nom09.jpg",
+	"image/nom12/nom010.jpg",
+	"image/nom12/nom011.jpg",
+	"image/nom12/nom012.jpg",
+	"image/nom12/nom013.jpg",
+	"image/nom12/nom014.jpg",
+	"image/nom12/nom015.jpg",
+	"image/nom12/nom016.jpg",
+	"image/nom12/nom017.jpg",
+	"image/nom12/nom018.jpg",
+	"image/nom12/nom019.jpg",
+	"image/nom12/nom020.jpg"
+    ],
+
+
+
+	
 };
 
 
