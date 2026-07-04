@@ -589,7 +589,34 @@ nom28: [
 	"image/nom28/nom03.jpg",
 	"image/nom28/nom04.jpg",
  ],
-
+	
+nom29: [
+	"image/nom29/nom01.jpg",
+	"image/nom29/nom02.jpg",
+	"image/nom29/nom03.jpg",
+	"image/nom29/nom04.jpg",
+	"image/nom29/nom05.jpg",
+	"image/nom29/nom06.jpg",
+	"image/nom29/nom07.jpg",
+	"image/nom29/nom08.jpg",
+	"image/nom29/nom09.jpg",
+ ],
+	
+nom30: [
+	"image/nom30/nom01.jpg",
+	"image/nom30/nom02.jpg",
+ ],
+	
+nom31: [
+	"image/nom31/nom01.jpg",
+	"image/nom31/nom02.jpg",
+	"image/nom31/nom03.jpg",
+	"image/nom31/nom04.jpg",
+ ],
+	
+nom32: [
+	"image/nom32/nom01.jpg",
+ ],
 
 };
 
