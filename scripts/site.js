@@ -882,7 +882,6 @@ galleryModal.addEventListener("click", e => {
         document.body.style.overflow = "";
 
     }
-
 });
 
 const imageViewer = document.getElementById("imageViewer");
