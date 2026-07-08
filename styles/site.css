@@ -672,7 +672,7 @@ font-size:56px;
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(10px, 0.5vw, 24px);
+  gap: clamp(2px, 0.1vw, 8px);
 }
 .portfolio-card {
  position:relative;
