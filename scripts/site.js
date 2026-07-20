@@ -5,6 +5,17 @@ const revealItems = Array.from(document.querySelectorAll(".reveal"));
 const tabContainer = document.querySelector("[data-tabs]");
 const tabTriggers = Array.from(document.querySelectorAll("[data-tab-target]"));
 const tabPanels = Array.from(document.querySelectorAll("[data-tab-panel]"));
+const conversationToggle =
+  document.querySelector("[data-conversation-toggle]");
+
+if (conversationToggle) {
+  conversationToggle.addEventListener("click", () => {
+    window.open(
+      "https://naver.me/FVF4ThAW",
+      "_blank"
+    );
+  });
+}
 
 const revealVisibleItems = (scope) => {
   Array.from(scope.querySelectorAll(".reveal")).forEach((item) => {
