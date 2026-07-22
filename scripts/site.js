@@ -156,9 +156,14 @@ window.addEventListener("load", () => {
 
 
 
-const galleryModal = document.getElementById("galleryModal");
-const galleryContent = document.querySelector(".gallery-content");
-const galleryClose = document.querySelector(".gallery-close");
+const imageViewer = document.getElementById("imageViewer");
+const viewerImage = document.getElementById("viewerImage");
+const viewerClose = document.querySelector(".viewer-close");
+const viewerPrev = document.querySelector(".viewer-prev");
+const viewerNext = document.querySelector(".viewer-next");
+const viewerThumbs = document.getElementById("viewerThumbs");
+let currentProject = [];
+let currentIndex = 0;
 
 
 
@@ -179,10 +184,13 @@ fetch("portfolio.json")
         .map((item) => {
           const labelText =
             item.category === "brand" ? item.brand : capitalize(item.category);
+          const moreBadge =
+            item.images.length > 1 ? `<span class="portfolio-more">+</span>` : "";
           return `
             <article class="portfolio-card" data-category="${item.category}">
               <figure>
                 <img class="project-trigger" data-project="${item.id}" src="${item.images[0]}">
+                ${moreBadge}
               </figure>
               <p class="portfolio-label">${labelText}</p>
             </article>
@@ -203,77 +211,43 @@ if (portfolioGridEl) {
     const img = e.target.closest(".project-trigger");
     if (!img) return;
 
-    galleryContent.innerHTML = "";
-
-    projects[img.dataset.project].forEach(src => {
-
-            const image = document.createElement("img");
-            image.src = src;
-            galleryContent.appendChild(image);
-
-        });
-
-        galleryModal.classList.add("active");
-        document.body.style.overflow = "hidden";
-
-    });
-
+    currentProject = projects[img.dataset.project];
+    openViewer(0);
+  });
 }
 
-galleryClose.addEventListener("click", () => {
-
-    galleryModal.classList.remove("active");
-    document.body.style.overflow = "";
-
-});
-
-galleryModal.addEventListener("click", e => {
-
-    if (e.target === galleryModal) {
-
-        galleryModal.classList.remove("active");
-        document.body.style.overflow = "";
-
-    }
-});
-
-const imageViewer = document.getElementById("imageViewer");
-const viewerImage = document.getElementById("viewerImage");
-const viewerClose = document.querySelector(".viewer-close");
-let currentProject = [];
-let currentIndex = 0;
-const viewerPrev = document.querySelector(".viewer-prev");
-const viewerNext = document.querySelector(".viewer-next");
-
-// 갤러리 안의 사진 클릭
-galleryContent.addEventListener("click", e => {
-
-    if (e.target.tagName !== "IMG") return;
-
-    const images = [...galleryContent.querySelectorAll("img")];
-
-    currentProject = images.map(img => img.src);
-    currentIndex = images.indexOf(e.target);
-
+function openViewer(index) {
+    currentIndex = index;
     viewerImage.src = currentProject[currentIndex];
 
-    imageViewer.classList.add("active");
+    viewerThumbs.innerHTML = currentProject
+      .map((src, i) => `<img src="${src}" class="${i === currentIndex ? "is-active" : ""}" data-index="${i}">`)
+      .join("");
 
+    imageViewer.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function closeViewer() {
+    imageViewer.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+viewerThumbs.addEventListener("click", e => {
+    const thumb = e.target.closest("img");
+    if (!thumb) return;
+    showImage(Number(thumb.dataset.index));
 });
 
 // 닫기
-viewerClose.addEventListener("click", () => {
-
-    imageViewer.classList.remove("active");
-
-});
+viewerClose.addEventListener("click", closeViewer);
 
 // 배경 클릭
 imageViewer.addEventListener("click", e => {
 
     if(e.target === imageViewer){
 
-        imageViewer.classList.remove("active");
+        closeViewer();
 
     }
 
@@ -290,6 +264,10 @@ function showImage(index){
 
     currentIndex = index;
     viewerImage.src = currentProject[currentIndex];
+
+    viewerThumbs.querySelectorAll("img").forEach((thumb, i) => {
+        thumb.classList.toggle("is-active", i === currentIndex);
+    });
 
 }
 
@@ -322,17 +300,9 @@ document.addEventListener("keydown", e => {
         }
 
         if (e.key === "Escape") {
-            imageViewer.classList.remove("active");
+            closeViewer();
             return;
         }
-
-    }
-
-    // 갤러리 모달이 열려있을 때 ESC
-    if (galleryModal.classList.contains("active") && e.key === "Escape") {
-
-        galleryModal.classList.remove("active");
-        document.body.style.overflow = "";
 
     }
 
