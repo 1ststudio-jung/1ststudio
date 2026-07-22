@@ -4,8 +4,8 @@ backend:
   branch: main
   # base_url 필요 없음 - 로그인 화면에서 "Sign In with Token" 버튼으로 로그인
 
-media_folder: "image/uploads"
-public_folder: "image/uploads"
+media_folder: "."
+public_folder: "/"
 
 collections:
   - name: "portfolio"
