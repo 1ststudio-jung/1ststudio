@@ -168,7 +168,8 @@ const portfolioGridEl = document.querySelector("[data-portfolio-grid]");
 
 fetch("portfolio.json")
   .then((res) => res.json())
-  .then((items) => {
+  .then((data) => {
+    const items = data.items;
     items.forEach((item) => {
       projects[item.id] = item.images;
     });
