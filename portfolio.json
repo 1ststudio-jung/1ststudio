@@ -223,9 +223,9 @@
       "category": "pet",
       "brand": "",
       "images": [
-        "image/nom12/nom01.jpg",
-        "image/nom12/nom02.jpg",
         "image/nom12/nom03.jpg",
+        "image/nom12/nom02.jpg",
+        "image/nom12/nom01.jpg",
         "image/nom12/nom04.jpg",
         "image/nom12/nom05.jpg",
         "image/nom12/nom06.jpg",
