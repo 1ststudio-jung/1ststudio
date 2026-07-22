@@ -7,13 +7,49 @@ const tabTriggers = Array.from(document.querySelectorAll("[data-tab-target]"));
 const tabPanels = Array.from(document.querySelectorAll("[data-tab-panel]"));
 const conversationToggle =
   document.querySelector("[data-conversation-toggle]");
+const conversationForm = document.querySelector("[data-conversation-form]");
+const conversationFormEl = document.querySelector("[data-conversation-form-el]");
+const conversationSuccess = document.querySelector("[data-conversation-success]");
 
-if (conversationToggle) {
+// 구글 시트에 연동된 Apps Script 웹 앱 URL을 여기에 붙여넣으세요.
+const CONTACT_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+
+if (conversationToggle && conversationForm) {
   conversationToggle.addEventListener("click", () => {
-    window.open(
-      "https://naver.me/FVF4ThAW",
-      "_blank"
-    );
+    conversationForm.hidden = !conversationForm.hidden;
+  });
+}
+
+if (conversationFormEl) {
+  conversationFormEl.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const submitButton = conversationFormEl.querySelector(".conversation-submit");
+    const formData = new FormData(conversationFormEl);
+    const payload = {
+      company: formData.get("name") || "",
+      contact: formData.get("contact") || "",
+      message: formData.get("message") || ""
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    fetch(CONTACT_SCRIPT_URL, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    })
+      .then(() => {
+        conversationFormEl.hidden = true;
+        if (conversationSuccess) conversationSuccess.hidden = false;
+      })
+      .catch(() => {
+        alert("전송에 실패했습니다. 잠시 후 다시 시도해주세요.");
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send inquiry";
+      });
   });
 }
 
@@ -124,746 +160,51 @@ const galleryModal = document.getElementById("galleryModal");
 const galleryContent = document.querySelector(".gallery-content");
 const galleryClose = document.querySelector(".gallery-close");
 
-const projects = {
 
-    nom01: [
-        "image/nom01/nom01.jpg",
-        "image/nom01/nom02.jpg",
-        "image/nom01/nom03.jpg",
-	"image/nom01/nom04.jpg",
-	"image/nom01/nom05.jpg",
-	"image/nom01/nom06.jpg",
-	"image/nom01/nom07.jpg",
-	"image/nom01/nom08.jpg",
-	"image/nom01/nom09.jpg",
-	"image/nom01/nom010.jpg",
-	"image/nom01/nom011.jpg",
-	"image/nom01/nom012.jpg",
-	"image/nom01/nom013.jpg",
-	"image/nom01/nom014.jpg",
-	"image/nom01/nom015.jpg",
-	"image/nom01/nom016.jpg",
-	"image/nom01/nom017.jpg",
-	"image/nom01/nom018.jpg",
-	"image/nom01/nom019.jpg",
-	"image/nom01/nom020.jpg",
-	"image/nom01/nom021.jpg"
-    ],
 
-   nom02: [
-	"image/nom02/nom02.jpg",
-	"image/nom02/nom03.jpg",
-	"image/nom02/nom04.jpg",
-	"image/nom02/nom05.jpg",
-	"image/nom02/nom06.jpg",
-	"image/nom02/nom07.jpg",
-	"image/nom02/nom08.jpg",
-	"image/nom02/nom09.jpg",
-	"image/nom02/nom010.jpg",
-	"image/nom02/nom013.jpg",
-	"image/nom02/nom016.jpg",
-	"image/nom02/nom017.jpg",
-	"image/nom02/nom018.jpg",
-	"image/nom02/nom020.jpg",
-	"image/nom02/nom021.jpg",
-	"image/nom02/nom022.jpg",
-	"image/nom02/nom023.jpg",
-	"image/nom02/nom024.jpg",
 
-    ],
-
-    nom03: [
-	"image/nom03/nom01.jpg",
-	"image/nom03/nom02.jpg",
-	"image/nom03/nom03.jpg",
-	"image/nom03/nom04.jpg",
-	"image/nom03/nom05.jpg",
-	"image/nom03/nom06.jpg",
-	"image/nom03/nom07.jpg",
-	"image/nom03/nom08.jpg",
-	"image/nom03/nom09.jpg",
-    ],
-
-    nom04: [
-	"image/nom04/nom01.jpg",
-	"image/nom04/nom02.jpg",
-	"image/nom04/nom03.jpg",
-	"image/nom04/nom04.jpg",
-	"image/nom04/nom05.jpg",
-	"image/nom04/nom06.jpg",
-	"image/nom04/nom07.jpg",
-	"image/nom04/nom08.jpg",
-	"image/nom04/nom09.jpg",
-	"image/nom04/nom010.jpg",
-	"image/nom04/nom011.jpg",
-	"image/nom04/nom012.jpg",
-	"image/nom04/nom013.jpg",
-	"image/nom04/nom014.jpg",
-	"image/nom04/nom015.jpg",
-	"image/nom04/nom016.jpg",
-	"image/nom04/nom017.jpg",
-	"image/nom04/nom018.jpg",
-	"image/nom04/nom019.jpg",
-    ],
-
-	nom05: [
-	"image/nom05/nom01.jpg",
-	"image/nom05/nom02.jpg",
-	"image/nom05/nom03.jpg",
-	"image/nom05/nom04.jpg",
-	"image/nom05/nom05.jpg",
-	"image/nom05/nom06.jpg",
-	"image/nom05/nom07.jpg",
-	"image/nom05/nom08.jpg",
-	"image/nom05/nom09.jpg",
-	"image/nom05/nom010.jpg"
-    ],
-
-	nom06: [
-	"image/nom06/nom01.jpg",
-	"image/nom06/nom02.jpg",
-	"image/nom06/nom03.jpg",
-	"image/nom06/nom04.jpg",
-	"image/nom06/nom05.jpg",
-	"image/nom06/nom06.jpg",
-	"image/nom06/nom07.jpg",
-	"image/nom06/nom08.jpg",
-	"image/nom06/nom09.jpg",
-	"image/nom06/nom010.jpg",
-	"image/nom06/nom011.jpg",
-	"image/nom06/nom012.jpg",
-	"image/nom06/nom013.jpg",
-	"image/nom06/nom014.jpg",
-	"image/nom06/nom015.jpg"
-    ],
-
-	nom07: [
-	"image/nom07/nom02.jpg",
-	"image/nom07/nom03.jpg",
-	"image/nom07/nom04.jpg",
-	"image/nom07/nom05.jpg",
-	"image/nom07/nom06.jpg",
-	"image/nom07/nom07.jpg",
-	"image/nom07/nom08.jpg",
-	"image/nom07/nom09.jpg"
-    ],
-
-	nom08: [
-	"image/nom08/nom02.jpg",
-	"image/nom08/nom03.jpg",
-	"image/nom08/nom04.jpg",
-	"image/nom08/nom05.jpg",
-	"image/nom08/nom06.jpg",
-	"image/nom08/nom07.jpg",
-	"image/nom08/nom08.jpg",
-	"image/nom08/nom09.jpg",
-	"image/nom08/nom010.jpg"
-    ],
-
-	nom09: [
-	"image/nom09/nom02.jpg",
-	"image/nom09/nom03.jpg",
-	"image/nom09/nom04.jpg",
-	"image/nom09/nom05.jpg",
-	"image/nom09/nom06.jpg",
-	"image/nom09/nom07.jpg",
-	"image/nom09/nom08.jpg"
-    ],
-
-	nom10: [
-	"image/nom10/nom01.jpg",
-	"image/nom10/nom02.jpg",
-	"image/nom10/nom03.jpg",
-	"image/nom10/nom04.jpg",
-	"image/nom10/nom05.jpg",
-	"image/nom10/nom06.jpg",
-	"image/nom10/nom07.jpg",
-	"image/nom10/nom08.jpg",
-	"image/nom10/nom09.jpg",
-	"image/nom10/nom010.jpg",
-	"image/nom10/nom011.jpg"
-    ],
-
-	nom11: [
-	"image/nom11/nom01.jpg",
-	"image/nom11/nom02.jpg",
-	"image/nom11/nom03.jpg",
-	"image/nom11/nom04.jpg",
-	"image/nom11/nom05.jpg",
-	"image/nom11/nom06.jpg",
-	"image/nom11/nom07.jpg",
-	"image/nom11/nom08.jpg",
-	"image/nom11/nom09.jpg",
-	"image/nom11/nom010.jpg",
-	"image/nom11/nom011.jpg",
-	"image/nom11/nom012.jpg",
-	"image/nom11/nom013.jpg",
-	"image/nom11/nom014.jpg"
-    ],
-
-	nom12: [
-	"image/nom12/nom01.jpg",
-	"image/nom12/nom02.jpg",
-	"image/nom12/nom03.jpg",
-	"image/nom12/nom04.jpg",
-	"image/nom12/nom05.jpg",
-	"image/nom12/nom06.jpg",
-	"image/nom12/nom07.jpg",
-	"image/nom12/nom08.jpg",
-	"image/nom12/nom09.jpg",
-	"image/nom12/nom010.jpg",
-	"image/nom12/nom011.jpg",
-	"image/nom12/nom012.jpg",
-	"image/nom12/nom013.jpg",
-	"image/nom12/nom014.jpg",
-	"image/nom12/nom015.jpg",
-	"image/nom12/nom016.jpg",
-	"image/nom12/nom017.jpg",
-	"image/nom12/nom018.jpg",
-	"image/nom12/nom019.jpg",
-	"image/nom12/nom020.jpg"
-    ],
-
-
-
-// 여기서부터
-nom13: [
-	"image/nom13/nom01.jpg",
-	"image/nom13/nom02.jpg",
-	"image/nom13/nom03.jpg",
-	"image/nom13/nom04.jpg",
-	"image/nom13/nom05.jpg",
-	"image/nom13/nom06.jpg",
-	"image/nom13/nom07.jpg",
-	"image/nom13/nom08.jpg",
-	"image/nom13/nom09.jpg",
-	"image/nom13/nom010.jpg",
-	"image/nom13/nom011.jpg",
-	"image/nom13/nom012.jpg"
-    ],
-
-
-nom14: [
-	"image/nom14/nom02.jpg",
-	"image/nom14/nom03.jpg",
-	"image/nom14/nom04.jpg",
-	"image/nom14/nom05.jpg",
-	"image/nom14/nom06.jpg",
-	"image/nom14/nom07.jpg",
-	"image/nom14/nom08.jpg",
-	"image/nom14/nom09.jpg",
-	"image/nom14/nom010.jpg",
-	"image/nom14/nom011.jpg",
-	"image/nom14/nom012.jpg",
-	"image/nom14/nom013.jpg",
-	"image/nom14/nom014.jpg",
-	"image/nom14/nom015.jpg",
-	"image/nom14/nom016.jpg",
-	"image/nom14/nom017.jpg",
-	"image/nom14/nom018.jpg",
-	"image/nom14/nom019.jpg",
-	"image/nom14/nom020.jpg",
-	"image/nom14/nom021.jpg",
-	"image/nom14/nom022.jpg",
-	"image/nom14/nom023.jpg",
-	"image/nom14/nom024.jpg",
-	"image/nom14/nom025.jpg",
-	"image/nom14/nom026.jpg",
-	"image/nom14/nom027.jpg",
-	"image/nom14/nom028.jpg",
-	"image/nom14/nom029.jpg",
-	"image/nom14/nom030.jpg",
-	"image/nom14/nom031.jpg",
-	"image/nom14/nom032.jpg",
-	"image/nom14/nom033.jpg",
-	"image/nom14/nom034.jpg",
-	"image/nom14/nom035.jpg",
-	"image/nom14/nom036.jpg"
-    ],
-
-	
-
-
-nom15: [
-	"image/nom15/nom01.jpg",
-	"image/nom15/nom02.jpg",
-	"image/nom15/nom03.jpg",
-	"image/nom15/nom04.jpg",
-	"image/nom15/nom05.jpg",
-	"image/nom15/nom06.jpg",
-	"image/nom15/nom07.jpg",
-	"image/nom15/nom08.jpg",
-	"image/nom15/nom09.jpg",
-	"image/nom15/nom010.jpg",
-	"image/nom15/nom011.jpg",
-	"image/nom15/nom012.jpg",
-	"image/nom15/nom013.jpg",
-	"image/nom15/nom014.jpg",
-	"image/nom15/nom015.jpg",
-	"image/nom15/nom016.jpg",
-	"image/nom15/nom017.jpg",
-	"image/nom15/nom018.jpg",
-	"image/nom15/nom019.jpg",
-	"image/nom15/nom020.jpg",
-	"image/nom15/nom021.jpg",
-	"image/nom15/nom022.jpg",
-	"image/nom15/nom023.jpg",
-	"image/nom15/nom024.jpg",
-	"image/nom15/nom025.jpg",
-	"image/nom15/nom026.jpg"
-    ],
-
-nom16: [
-	"image/nom16/nom01.jpg",
-	"image/nom16/nom02.jpg",
-	"image/nom16/nom03.jpg",
-	"image/nom16/nom04.jpg",
-	"image/nom16/nom05.jpg",
-	"image/nom16/nom06.jpg",
-	"image/nom16/nom07.jpg",
-	"image/nom16/nom08.jpg",
-	"image/nom16/nom09.jpg",
-	"image/nom16/nom010.jpg",
-	"image/nom16/nom011.jpg",
-	"image/nom16/nom012.jpg",
-	"image/nom16/nom013.jpg",
- ],
-
-nom17: [
-	"image/nom17/nom01.jpg",
-	"image/nom17/nom02.jpg",
-	"image/nom17/nom03.jpg",
-	"image/nom17/nom04.jpg",
-	"image/nom17/nom05.jpg",
-	"image/nom17/nom06.jpg",
-	"image/nom17/nom07.jpg",
-	"image/nom17/nom08.jpg",
-	"image/nom17/nom09.jpg",
-	"image/nom17/nom010.jpg",
-	"image/nom17/nom011.jpg",
-	"image/nom17/nom012.jpg",
-	"image/nom17/nom013.jpg",
-	"image/nom17/nom014.jpg",
-	"image/nom17/nom015.jpg",
-	"image/nom17/nom016.jpg",
-	"image/nom17/nom017.jpg",
-	"image/nom17/nom018.jpg",
- ],
-
-
-nom18: [
-	"image/nom18/nom01.jpg",
-	"image/nom18/nom02.jpg",
-	"image/nom18/nom03.jpg",
-	"image/nom18/nom04.jpg",
-	"image/nom18/nom05.jpg",
-	"image/nom18/nom06.jpg",
-	"image/nom18/nom07.jpg",
-	"image/nom18/nom08.jpg",
-	"image/nom18/nom09.jpg",
-	"image/nom18/nom010.jpg",
-	"image/nom18/nom011.jpg",
- ],
-
-
-
-
-nom19: [
-	"image/nom19/nom01.jpg",
-	"image/nom19/nom02.jpg",
-	"image/nom19/nom03.jpg",
-	"image/nom19/nom04.jpg",
-	"image/nom19/nom05.jpg",
-	"image/nom19/nom06.jpg",
-	"image/nom19/nom07.jpg",
-	"image/nom19/nom08.jpg",
-	"image/nom19/nom09.jpg",
-	"image/nom19/nom010.jpg",
-	"image/nom19/nom011.jpg",
-	"image/nom19/nom012.jpg",
-	"image/nom19/nom013.jpg",
-	"image/nom19/nom014.jpg",
-	"image/nom19/nom015.jpg",
-	"image/nom19/nom016.jpg",
-	"image/nom19/nom017.jpg",
-	"image/nom19/nom018.jpg",
- ],
-
-nom20: [
-	"image/nom20/nom01.jpg",
-	"image/nom20/nom02.jpg",
-	"image/nom20/nom03.jpg",
-	"image/nom20/nom04.jpg",
-	"image/nom20/nom05.jpg",
-	"image/nom20/nom06.jpg",
-	"image/nom20/nom07.jpg",
-	"image/nom20/nom08.jpg",
-	"image/nom20/nom09.jpg",
- ],
-
-
-nom21: [
-	"image/nom21/nom01.jpg",
-	"image/nom21/nom02.jpg",
-	"image/nom21/nom03.jpg",
-	"image/nom21/nom04.jpg",
-	"image/nom21/nom05.jpg",
-	"image/nom21/nom06.jpg",
-	"image/nom21/nom07.jpg",
- ],
-
-nom22: [
-	"image/nom22/nom01.jpg",
-	"image/nom22/nom02.jpg",
-	"image/nom22/nom03.jpg",
-	"image/nom22/nom04.jpg",
-	"image/nom22/nom05.jpg",
-	"image/nom22/nom06.jpg",
-	"image/nom22/nom07.jpg",
-	"image/nom22/nom08.jpg",
-	"image/nom22/nom09.jpg",
-	"image/nom22/nom10.jpg",
- ],
-
-nom23: [
-	"image/nom23/nom01.jpg",
-	"image/nom23/nom02.jpg",
-	"image/nom23/nom03.jpg",
-	"image/nom23/nom04.jpg",
-	"image/nom23/nom05.jpg",
-	"image/nom23/nom06.jpg",
-	"image/nom23/nom07.jpg",
-	"image/nom23/nom08.jpg",
-	"image/nom23/nom09.jpg",
-	"image/nom23/nom10.jpg",
-	"image/nom23/nom11.jpg",
-	"image/nom23/nom12.jpg",
-	"image/nom23/nom13.jpg",
- ],
-
-
-nom24: [
-	"image/nom24/nom01.jpg",
-	"image/nom24/nom02.jpg",
-	"image/nom24/nom03.jpg",
-	"image/nom24/nom04.jpg",
-	"image/nom24/nom05.jpg",
-	"image/nom24/nom06.jpg",
-	"image/nom24/nom07.jpg",
-	"image/nom24/nom08.jpg",
-	"image/nom24/nom09.jpg",
-	"image/nom24/nom10.jpg",
-	"image/nom24/nom11.jpg",
-	"image/nom24/nom12.jpg",
-	"image/nom24/nom13.jpg",
-	"image/nom24/nom14.jpg",
-	"image/nom24/nom15.jpg",
-	"image/nom24/nom16.jpg",
-	"image/nom24/nom17.jpg",
- ],
-
-
-nom25: [
-	"image/nom25/nom01.jpg",
-	"image/nom25/nom02.jpg",
-	"image/nom25/nom03.jpg",
-	"image/nom25/nom04.jpg",
-	"image/nom25/nom05.jpg",
-	"image/nom25/nom06.jpg",
-	"image/nom25/nom07.jpg",
-	"image/nom25/nom08.jpg",
-	"image/nom25/nom09.jpg",
-	"image/nom25/nom10.jpg",
-	"image/nom25/nom11.jpg",
-	"image/nom25/nom12.jpg",
-	"image/nom25/nom13.jpg",
-	"image/nom25/nom14.jpg",
-	"image/nom25/nom15.jpg",
- ],
-
-nom26: [
-	"image/nom26/nom01.jpg",
-	"image/nom26/nom02.jpg",
-	"image/nom26/nom03.jpg",
-	"image/nom26/nom04.jpg",
-	"image/nom26/nom05.jpg",
- ],
-
-nom27: [
-	"image/nom27/nom01.jpg",
-	"image/nom27/nom02.jpg",
- ],
-
-nom28: [
-	"image/nom28/nom01.jpg",
-	"image/nom28/nom02.jpg",
-	"image/nom28/nom03.jpg",
-	"image/nom28/nom04.jpg",
- ],
-	
-nom29: [
-	"image/nom29/nom01.jpg",
-	"image/nom29/nom02.jpg",
-	"image/nom29/nom03.jpg",
-	"image/nom29/nom04.jpg",
-	"image/nom29/nom05.jpg",
-	"image/nom29/nom06.jpg",
-	"image/nom29/nom07.jpg",
-	"image/nom29/nom08.jpg",
-	"image/nom29/nom09.jpg",
- ],
-	
-nom30: [
-	"image/nom30/nom01.jpg",
-	"image/nom30/nom02.jpg",
- ],
-	
-nom31: [
-	"image/nom31/nom01.jpg",
-	"image/nom31/nom02.jpg",
-	"image/nom31/nom03.jpg",
-	"image/nom31/nom04.jpg",
- ],
-	
-nom32: [
-	"image/nom32/nom01.jpg",
- ],
-
-	nom33: [
-	"image/nom33/nom01.jpg",
-	"image/nom33/nom02.jpg",
-	"image/nom33/nom03.jpg",
-	"image/nom33/nom04.jpg",
-	"image/nom33/nom05.jpg",
-	"image/nom33/nom06.jpg",
-	"image/nom33/nom07.jpg",
-	"image/nom33/nom08.jpg",
-	"image/nom33/nom09.jpg",
-	"image/nom33/nom010.jpg",
-	"image/nom33/nom011.jpg",
-	"image/nom33/nom012.jpg",
-	"image/nom33/nom013.jpg",
-	"image/nom33/nom014.jpg",
-	"image/nom33/nom015.jpg",
-	"image/nom33/nom016.jpg",
-	"image/nom33/nom017.jpg",
- ],
-
-nom34: [
-	"image/nom34/nom01.jpg",
-	"image/nom34/nom02.jpg",
-	"image/nom34/nom03.jpg",
-	"image/nom34/nom04.jpg",
-	"image/nom34/nom05.jpg",
-	"image/nom34/nom06.jpg",
-	"image/nom34/nom07.jpg",
-	"image/nom34/nom08.jpg",
-	"image/nom34/nom09.jpg",
-	"image/nom34/nom010.jpg",
-	"image/nom34/nom011.jpg",
-	"image/nom34/nom012.jpg",
- ],
-
-nom35: [
-	"image/nom35/nom01.jpg",
-	"image/nom35/nom02.jpg",
-	"image/nom35/nom03.jpg",
-	"image/nom35/nom04.jpg",
-	"image/nom35/nom05.jpg",
-	"image/nom35/nom06.jpg",
-	"image/nom35/nom07.jpg",
-	"image/nom35/nom08.jpg",
-	"image/nom35/nom09.jpg",
- ],
-
-nom36: [
-	"image/nom36/nom01.jpg",
-	"image/nom36/nom02.jpg",
-	"image/nom36/nom03.jpg",
-	"image/nom36/nom04.jpg",
-	"image/nom36/nom05.jpg",
-	"image/nom36/nom06.jpg",
-	"image/nom36/nom07.jpg",
-	"image/nom36/nom08.jpg",
-	"image/nom36/nom09.jpg",
-	"image/nom36/nom010.jpg",
-	"image/nom36/nom011.jpg",
- ],
-
-nom37: [
-	"image/nom37/nom01.jpg",
-	"image/nom37/nom02.jpg",
-	"image/nom37/nom03.jpg",
-	"image/nom37/nom04.jpg",
-	"image/nom37/nom05.jpg",
-	"image/nom37/nom06.jpg",
-	"image/nom37/nom07.jpg",
-	"image/nom37/nom08.jpg",
-	"image/nom37/nom09.jpg",
- ],
-
-nom38: [
-	"image/nom38/nom01.jpg",
-	"image/nom38/nom02.jpg",
-	"image/nom38/nom03.jpg",
-	"image/nom38/nom04.jpg",
-	"image/nom38/nom05.jpg",
-	"image/nom38/nom06.jpg",
-	"image/nom38/nom07.jpg",
-	"image/nom38/nom08.jpg",
-	"image/nom38/nom09.jpg",
-	"image/nom38/nom010.jpg",
-	"image/nom38/nom011.jpg",
-	"image/nom38/nom012.jpg",
-	"image/nom38/nom013.jpg",
-	"image/nom38/nom014.jpg",
-	"image/nom38/nom015.jpg",
-	"image/nom38/nom016.jpg",
-	"image/nom38/nom017.jpg",
-	"image/nom38/nom018.jpg",
-	"image/nom38/nom019.jpg",
- ],
-
-nom39: [
-	"image/nom39/nom01.jpg",
-	"image/nom39/nom02.jpg",
-	"image/nom39/nom03.jpg",
-	"image/nom39/nom04.jpg",
- ],
-
-nom40: [
-	"image/nom40/nom01.jpg",
-	"image/nom40/nom02.jpg",
-	"image/nom40/nom03.jpg",
-	"image/nom40/nom04.jpg",
- ],
-
-nom41: [
-	"image/nom41/nom01.jpg",
-	"image/nom41/nom02.jpg",
-	"image/nom41/nom03.jpg",
-	"image/nom41/nom04.jpg",
-	"image/nom41/nom05.jpg",
-	"image/nom41/nom06.jpg",
-	"image/nom41/nom07.jpg",
-],
-
-nom42: [
-	"image/nom42/nom01.jpg",
-	"image/nom42/nom02.jpg",
-	"image/nom42/nom03.jpg",
-	"image/nom42/nom04.jpg",
-	"image/nom42/nom05.jpg",
-	"image/nom42/nom06.jpg",
-	"image/nom42/nom07.jpg",
-	"image/nom42/nom08.jpg",
-	"image/nom42/nom09.jpg",
-	"image/nom42/nom010.jpg",
-	"image/nom42/nom011.jpg",
-	"image/nom42/nom012.jpg",
-	"image/nom42/nom013.jpg",
-	"image/nom42/nom014.jpg",
-	"image/nom42/nom015.jpg",
-	"image/nom42/nom016.jpg",
-	"image/nom42/nom017.jpg",
- ],
-
-nom43: [
-	"image/nom43/nom01.jpg",
-	"image/nom43/nom02.jpg",
-	"image/nom43/nom03.jpg",
-	"image/nom43/nom04.jpg",
-	"image/nom43/nom05.jpg",
-	"image/nom43/nom06.jpg",
-	"image/nom43/nom07.jpg",
- ],
-
-nom44: [
-	"image/nom44/nom01.jpg",
-	"image/nom44/nom02.jpg",
-	"image/nom44/nom03.jpg",
-	"image/nom44/nom04.jpg",
-	"image/nom44/nom05.jpg",
-	"image/nom44/nom06.jpg",
-	"image/nom44/nom07.jpg",
-	"image/nom44/nom08.jpg",
-	"image/nom44/nom09.jpg",
-	"image/nom44/nom010.jpg",
-	"image/nom44/nom011.jpg",
-	"image/nom44/nom012.jpg",
- ],
-
-nom45: [
-	"image/nom45/nom01.jpg",
-	"image/nom45/nom02.jpg",
-	"image/nom45/nom03.jpg",
-	"image/nom45/nom04.jpg",
-	"image/nom45/nom05.jpg",
-	"image/nom45/nom06.jpg",
-	"image/nom45/nom07.jpg",
-	"image/nom45/nom08.jpg",
-	"image/nom45/nom09.jpg",
- ],
-
-nom46: [
-	"image/nom46/nom01.jpg",
-	"image/nom46/nom02.jpg",
-	"image/nom46/nom03.jpg",
-	"image/nom46/nom04.jpg",
-	"image/nom46/nom05.jpg",
- ],
-
-nom47: [
-	"image/nom47/nom01.jpg",
-	"image/nom47/nom02.jpg",
-	"image/nom47/nom03.jpg",
-	"image/nom47/nom04.jpg",
-	"image/nom47/nom05.jpg",
-	"image/nom47/nom06.jpg",
-	"image/nom47/nom07.jpg",
-	"image/nom47/nom08.jpg",
-	"image/nom47/nom09.jpg",
-	"image/nom47/nom010.jpg",
-	"image/nom47/nom011.jpg",
-	"image/nom47/nom012.jpg",
-	"image/nom47/nom013.jpg",
-	"image/nom47/nom014.jpg",
-	"image/nom47/nom015.jpg",
- ],
-
-nom48: [
-	"image/nom48/nom01.jpg",
-	"image/nom48/nom02.jpg",
-	"image/nom48/nom03.jpg",
-	"image/nom48/nom04.jpg",
-	"image/nom48/nom05.jpg",
-	"image/nom48/nom06.jpg",
-	"image/nom48/nom07.jpg",
-	"image/nom48/nom08.jpg",
-	"image/nom48/nom09.jpg",
-	"image/nom48/nom010.jpg",
-	"image/nom48/nom011.jpg",
-	"image/nom48/nom012.jpg",
-	"image/nom48/nom013.jpg",
- ],
-
-
-
-
-
-
-	
-};
-
-
-
-document.querySelectorAll(".project-trigger").forEach(img => {
-
-    img.addEventListener("click", () => {
-
-        galleryContent.innerHTML = "";
-
-        projects[img.dataset.project].forEach(src => {
+let projects = {};
+const portfolioGridEl = document.querySelector("[data-portfolio-grid]");
+
+fetch("portfolio.json")
+  .then((res) => res.json())
+  .then((items) => {
+    items.forEach((item) => {
+      projects[item.id] = item.images;
+    });
+
+    if (portfolioGridEl) {
+      portfolioGridEl.innerHTML = items
+        .map((item) => {
+          const labelText =
+            item.category === "brand" ? item.brand : capitalize(item.category);
+          return `
+            <article class="portfolio-card" data-category="${item.category}">
+              <figure>
+                <img class="project-trigger" data-project="${item.id}" src="${item.images[0]}">
+              </figure>
+              <p class="portfolio-label">${labelText}</p>
+            </article>
+          `;
+        })
+        .join("");
+    }
+  })
+  .catch((err) => console.error("portfolio.json 로드 실패:", err));
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// project-trigger는 이제 동적으로 생성되므로, 그리드 컨테이너에 이벤트 위임으로 처리
+if (portfolioGridEl) {
+  portfolioGridEl.addEventListener("click", (e) => {
+    const img = e.target.closest(".project-trigger");
+    if (!img) return;
+
+    galleryContent.innerHTML = "";
+
+    projects[img.dataset.project].forEach(src => {
 
             const image = document.createElement("img");
             image.src = src;
@@ -876,7 +217,7 @@ document.querySelectorAll(".project-trigger").forEach(img => {
 
     });
 
-});
+}
 
 galleryClose.addEventListener("click", () => {
 
@@ -1010,3 +351,34 @@ imageViewer.addEventListener("touchend", e => {
     if (diff > 50) showImage(currentIndex + 1);
     if (diff < -50) showImage(currentIndex - 1);
 });
+// 히어로 배경 슬라이드쇼 (확대 + 크로스페이드)
+const heroSlides = document.querySelectorAll(".hero-bg-slide");
+if (heroSlides.length > 1) {
+  let heroIndex = 0;
+  setInterval(() => {
+    heroSlides[heroIndex].classList.remove("is-active");
+    heroIndex = (heroIndex + 1) % heroSlides.length;
+    heroSlides[heroIndex].classList.add("is-active");
+  }, 6000);
+}
+
+// 포트폴리오 카테고리 필터
+const portfolioFilters = document.querySelector("[data-portfolio-filters]");
+
+if (portfolioFilters) {
+  portfolioFilters.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-filter]");
+    if (!btn) return;
+
+    portfolioFilters.querySelectorAll("button").forEach((b) => {
+      b.classList.remove("is-active");
+    });
+    btn.classList.add("is-active");
+
+    const filter = btn.dataset.filter;
+    document.querySelectorAll(".portfolio-card").forEach((card) => {
+      const match = filter === "all" || card.dataset.category === filter;
+      card.hidden = !match;
+    });
+  });
+}
