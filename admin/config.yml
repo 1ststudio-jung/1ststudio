@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: 1ststudio-jung/1ststudio   # ⚠️ 본인 GitHub repo 경로로 교체 (예: hong/1st-studio)
-  branch: main                                 # ⚠️ 실제 기본 브랜치명과 다르면 교체 (main 또는 master)
-  base_url: https://YOUR-OAUTH-PROXY-URL       # ⚠️ 아래 안내대로 OAuth 프록시 배포 후 그 주소로 교체
+  repo: 1ststudio-jung/1ststudio
+  branch: main
+  # base_url 필요 없음 - 로그인 화면에서 "Sign In with Token" 버튼으로 로그인
 
 media_folder: "image/uploads"
 public_folder: "image/uploads"
