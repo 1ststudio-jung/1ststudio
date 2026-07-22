@@ -264,7 +264,7 @@ img { display:block;
 }
 
 .portfolio-section {
-  padding: clamp(64px, 9vw, 120px) clamp(24px, 10vw, 128px);
+  padding: clamp(64px, 9vw, 120px) clamp(12px, 3vw, 40px);
   background: var(--paper);
   scroll-margin-top: 80px;
 }
@@ -605,17 +605,17 @@ img { display:block;
 }
 .portfolio-label{
     margin:12px 0 0;
-    font-size:16px;
+    font-size:13px;
     font-weight:700;
     letter-spacing:.04em;
-    text-align:left;
+    text-align:center;
     color:var(--soft-ink);
     text-transform:uppercase;
 }
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: clamp(2px, 0.1vw, 8px);
+  column-gap: clamp(8px, 1.2vw, 18px);
   row-gap: clamp(28px, 3vw, 48px);
 }
 .portfolio-card {
