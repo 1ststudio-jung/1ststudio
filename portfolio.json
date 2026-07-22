@@ -897,6 +897,14 @@
         "image/nom48/nom012.jpg",
         "image/nom48/nom013.jpg"
       ]
+    },
+    {
+      "id": "nom49",
+      "category": "pet",
+      "brand": "",
+      "images": [
+        "/nom015.jpg"
+      ]
     }
   ]
 }
