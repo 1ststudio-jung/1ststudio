@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME   # ⚠️ 본인 GitHub repo 경로로 교체 (예: hong/1st-studio)
+  branch: main                                 # ⚠️ 실제 기본 브랜치명과 다르면 교체 (main 또는 master)
+  base_url: https://YOUR-OAUTH-PROXY-URL       # ⚠️ 아래 안내대로 OAuth 프록시 배포 후 그 주소로 교체
+
+media_folder: "image/uploads"
+public_folder: "image/uploads"
+
+collections:
+  - name: "portfolio"
+    label: "포트폴리오"
+    files:
+      - file: "portfolio.json"
+        label: "프로젝트 목록"
+        name: "portfolio"
+        fields:
+          - label: "프로젝트 목록"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.id}} — {{fields.category}}"
+            fields:
+              - { label: "ID (폴더명과 동일하게, 예: nom49)", name: "id", widget: "string" }
+              - label: "카테고리"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Portrait", value: "portrait" }
+                  - { label: "Personal", value: "personal" }
+                  - { label: "Pet", value: "pet" }
+                  - { label: "Brand", value: "brand" }
+              - { label: "업체명 (Brand일 때만 입력)", name: "brand", widget: "string", required: false, default: "" }
+              - label: "사진들 (첫 번째 사진이 썸네일로 사용됨)"
+                name: "images"
+                widget: "list"
+                field: { label: "이미지", name: "image", widget: "image" }
