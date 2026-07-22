@@ -14,7 +14,7 @@
   </title>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&amp;display=swap" rel="stylesheet"/>
   <link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet"/>
   <link href="styles/site.css" rel="stylesheet"/>
   <script defer="" src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js">
@@ -26,7 +26,7 @@
   <header class="site-header">
    <a aria-label="1ST STUDIO home" class="brand" href="#main">
     <strong>
-     1ST STUDIO | Portrait Photographer Seoul
+     1ST STUDIO<span class="visually-hidden"> | Portrait Photographer Seoul</span>
     </strong>
    </a>
    <nav aria-label="Primary navigation" class="main-nav">
@@ -42,14 +42,21 @@
    </nav>
   </header>
 
+
   <main>
    <section aria-label="Studio content" class="content-tabs" data-tabs="">
+
     <!-- MAIN -->
     <section class="tab-panel is-active" data-tab-panel="main" id="main">
 
      <!-- Hero -->
      <section class="main-hero">
-      <img class="hero-bg" src="image/image10.jpg"/>
+      <div class="hero-bg-slides">
+       <img alt="" class="hero-bg-slide is-active" src="image/image10.jpg"/>
+       <img alt="" class="hero-bg-slide" src="image/nom01/nom01.jpg"/>
+       <img alt="" class="hero-bg-slide" src="image/nom10/nom01.jpg"/>
+       <img alt="" class="hero-bg-slide" src="image/nom20/nom03.jpg"/>
+      </div>
       <div aria-hidden="true" class="hero-shade">
       </div>
       <div class="hero-copy reveal">
@@ -75,28 +82,6 @@
       </div>
      </section>
 
-
-     <!-- FEATURED PROJECTS -->
-     <section class="featured-projects">
-      <article class="featured-item">
-       <div class="featured-image">
-        <img alt="" src="image/image11.jpg"/>
-       </div>
-       <div class="featured-content">
-        <span>
-         ABOUT STUDIO
-        </span>
-        <h3>
-         A Photography Studio Focused on Direction and Quality
-        </h3>
-        <p>
-         첫번째 스튜디오는 광고와 브랜드 콘텐츠, 인물 촬영을 중심으로 다양한 이미지를 제작하는 커머셜 스튜디오입니다.
-         <br/>
-         브랜드가 전달하고 싶은 가치와 사람만의 분위기를 이해하고 가장 적합한 결과물로 완성하는 것을 목표로 합니다.
-        </p>
-       </div>
-      </article>
-     </section>
 
      <section class="full-banner">
       <div class="banner-left">
@@ -197,13 +182,16 @@
       </div>
       <div class="cta-content center">
        <p>
-        LET'S WORK TOGETHER
+        BY RESERVATION
        </p>
        <h2>
-        Start Your
+        One Photographer.
         <br/>
-        Next Project
+        Every Step.
        </h2>
+       <button class="cta-button" data-contact-open="" type="button">
+        문의하기
+       </button>
       </div>
      </section>
     </section>
@@ -218,416 +206,15 @@
       </p>
      </div>
 
-     <div class="portfolio-grid reveal">
-
-      <article class="portfolio-card">
-       <figure>
-        <img
-class="project-trigger"
-data-project="nom01"
-src="image/nom01/nom01.jpg">
-       </figure>
-     
-      </article>
-
-      <article class="portfolio-card">
-       <figure>
-       <img
-class="project-trigger"
-data-project="nom02"
-src="image/nom02/nom02.jpg">
-       </figure>
-     
-      </article>
-
-      <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom03"
-src="image/nom03/nom09.jpg">   </figure>
-       
-      </article>
-
-      <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom04"
-src="image/nom04/nom08.jpg">     </figure>
-       
-      </article>
-
-       <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom05"
-src="image/nom05/nom04.jpg">     </figure>
-       
-      </article>
-
-
-      <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom06"
-src="image/nom06/nom015.jpg">     </figure>
-      </article>
-      
-          <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom07"
-src="image/nom07/nom02.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom08"
-src="image/nom08/nom07.jpg">     </figure>
-      </article>
-
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom09"
-src="image/nom09/nom02.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom10"
-src="image/nom10/nom01.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom11"
-src="image/nom11/nom05.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom12"
-src="image/nom12/nom011.jpg">     </figure>
-      </article>
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom13"
-src="image/nom13/nom01.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom14"
-src="image/nom14/nom011.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom15"
-src="image/nom15/nom01.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom16"
-src="image/nom16/nom06.jpg">     </figure>
-      </article>
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom17"
-src="image/nom17/nom017.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom18"
-src="image/nom18/nom010.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom19"
-src="image/nom19/nom05.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom20"
-src="image/nom20/nom03.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom21"
-src="image/nom21/nom02.jpg">     </figure>
-      </article>
-
-
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom22"
-src="image/nom22/nom02.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom23"
-src="image/nom23/nom08.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom24"
-src="image/nom24/nom010.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom25"
-src="image/nom25/nom05.jpg">     </figure>
-      </article>
-
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom26"
-src="image/nom26/nom05.jpg">     </figure>
-      </article>
-
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom27"
-src="image/nom27/nom01.jpg">     </figure>
-      </article>
-
-
-    <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom28"
-src="image/nom28/nom01.jpg">     </figure>
-      </article>
-
-  <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom29"
-src="image/nom29/nom08.jpg">     </figure>
-      </article>
-
-
-  <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom30"
-src="image/nom30/nom01.jpg">     </figure>
-      </article>
-
-
-  <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom31"
-src="image/nom31/nom04.jpg">     </figure>
-      </article>
-
-
-  <article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom32"
-src="image/nom32/nom01.jpg">     </figure>
-      </article>
-
-<article class="portfolio-card">
-       <figure>
-<img
-class="project-trigger"
-data-project="nom33"
-src="image/nom33/nom06.jpg">     </figure>
-      </article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom34"
-src="image/nom34/nom011.jpg">     </figure></article>
-
-      <article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom35"
-src="image/nom35/nom01.jpg">     </figure></article>
-
-      <article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom36"
-src="image/nom36/nom08.jpg">     </figure></article>
-
-      <article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom37"
-src="image/nom37/nom06.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom38"
-src="image/nom38/nom02.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom39"
-src="image/nom39/nom03.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom40"
-src="image/nom40/nom01.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom41"
-src="image/nom41/nom03.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom42"
-src="image/nom42/nom016.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom43"
-src="image/nom43/nom03.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom44"
-src="image/nom44/nom07.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom45"
-src="image/nom45/nom08.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom46"
-src="image/nom46/nom05.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom47"
-src="image/nom47/nom015.jpg">     </figure></article>
-
-<article class="portfolio-card">
-<figure><img
-class="project-trigger"
-data-project="nom48"
-src="image/nom48/nom013.jpg">     </figure></article>
-
-
-
-
-
-
-
-      
+     <div class="portfolio-filters" data-portfolio-filters="">
+      <button class="is-active" data-filter="all" type="button">All</button>
+      <button data-filter="portrait" type="button">Portrait</button>
+      <button data-filter="personal" type="button">Personal</button>
+      <button data-filter="pet" type="button">Pet</button>
+      <button data-filter="brand" type="button">Brand</button>
      </div>
-     
 
-
-
-<!--
-     <div class="portfolio-action reveal">
-      <a class="text-button" data-tab-target="about" href="#about">
-       About Studio
-      </a>
-     </div>
--->
+     <div class="portfolio-grid reveal" data-portfolio-grid=""></div>
 
     </section></section>
   </main>
@@ -662,26 +249,30 @@ src="image/nom48/nom013.jpg">     </figure></article>
   궁금한 점이나 촬영 아이디어를 편하게 남겨주세요.
  </p>
 
- <form action="mailto:1st_studio_@naver.com" method="post" enctype="text/plain">
+ <form data-conversation-form-el>
   <label>
    <span>Name / Company</span>
-   <input type="text" name="name" placeholder="Your name or company">
+   <input type="text" name="name" placeholder="Your name or company" required>
   </label>
 
   <label>
    <span>Contact</span>
-   <input type="text" name="contact" placeholder="Email or phone number">
+   <input type="text" name="contact" placeholder="Email or phone number" required>
   </label>
 
   <label>
    <span>Message</span>
-   <textarea name="message" rows="4" placeholder="Tell us briefly about your idea"></textarea>
+   <textarea name="message" rows="4" placeholder="Tell us briefly about your idea" required></textarea>
   </label>
 
   <button type="submit" class="conversation-submit">
    Send inquiry
   </button>
  </form>
+
+ <div class="conversation-success" data-conversation-success hidden>
+  <p>문의가 접수되었습니다. 빠르게 연락드리겠습니다.</p>
+ </div>
 </div>
     <a class="contact-row" href="mailto:hello@jungkimstudio.com">
      <span>
@@ -740,37 +331,6 @@ Portrait, Branding, Editorial    </span>
     © 2026 1ST STUDIO. All Rights Reserved. Photographer based in Seoul.
    </p>
   </footer>
-
-
-<!--
-
- <div id="lightbox" class="lightbox" onclick="closeImage()">
-
-    <button class="nav prev" onclick="prevImage(event)">‹</button>
-
-    <div class="lightbox-inner" onclick="event.stopPropagation()">
-
-        <img id="lightbox-img" src="" alt="">
-
-        <div class="lightbox-info">
-
-            <h3 id="lightbox-title"></h3>
-
-            <p id="lightbox-count"></p>
-
-        </div>
-
-    </div>
-
-    <button class="nav next" onclick="nextImage(event)">›</button>
-
-    <button class="close" onclick="closeImage()">&times;</button>
-
-</div>
-   </div>
-  </div>
-
--->
 
 <!-- Portfolio Gallery -->
 <div class="gallery-modal" id="galleryModal">
