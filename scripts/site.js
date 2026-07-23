@@ -5,20 +5,12 @@ const revealItems = Array.from(document.querySelectorAll(".reveal"));
 const tabContainer = document.querySelector("[data-tabs]");
 const tabTriggers = Array.from(document.querySelectorAll("[data-tab-target]"));
 const tabPanels = Array.from(document.querySelectorAll("[data-tab-panel]"));
-const conversationToggle =
-  document.querySelector("[data-conversation-toggle]");
 const conversationForm = document.querySelector("[data-conversation-form]");
 const conversationFormEl = document.querySelector("[data-conversation-form-el]");
 const conversationSuccess = document.querySelector("[data-conversation-success]");
 
 // 구글 시트에 연동된 Apps Script 웹 앱 URL을 여기에 붙여넣으세요.
 const CONTACT_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
-
-if (conversationToggle && conversationForm) {
-  conversationToggle.addEventListener("click", () => {
-    conversationForm.hidden = !conversationForm.hidden;
-  });
-}
 
 if (conversationFormEl) {
   conversationFormEl.addEventListener("submit", (event) => {
