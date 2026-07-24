@@ -693,9 +693,9 @@ PROCESS
 
     grid-template-columns:repeat(4,1fr);
 
-    padding:24px 0 20px;
+    padding:40px 0 32px;
 
-    min-height:clamp(220px, 26vh, 300px);
+    min-height:clamp(280px, 32vh, 360px);
 
     background: #efe8da;
 }
@@ -769,23 +769,23 @@ display:flex;
 
     font-family:var(--serif);
 
-    font-size:18px;
+    font-size:21px;
 
-    font-weight:300;
+    font-weight:500;
 
     color:var(--ink);
 
-    margin-bottom:18px;
+    margin-bottom:12px;
 }
 
 .process-card p{
 
-    color:var(--muted);
+    color:var(--soft-ink);
 
-    line-height:1.9;
+    line-height:1.55;
 margin:0;
-    max-width:240px;
-    font-size:13px;
+    max-width:220px;
+    font-size:14px;
 }
 
 /*==============================
