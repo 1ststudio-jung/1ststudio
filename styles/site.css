@@ -671,7 +671,7 @@ PROCESS
 
     margin:0 auto;
 
-    padding:48px 0 40px;
+    padding:48px 0 0;
 
 }
 .process-section .section-heading{
@@ -879,6 +879,8 @@ CTA
 
     width:100%;
 
+    border-top:3px solid var(--accent);
+
     height:clamp(440px, 56vh, 620px);
 
     overflow:hidden;
@@ -892,7 +894,7 @@ CTA
 
     object-fit:cover;
 
-    filter:grayscale(30%) saturate(85%) contrast(105%);
+    filter:grayscale(20%) sepia(8%) saturate(90%) contrast(105%);
 }
 
 .cta-overlay{
@@ -901,7 +903,7 @@ CTA
 
     inset:0;
 
-    background:rgba(0,0,0,.38);
+    background:rgba(23,20,17,.48);
 }
 
 .cta-content{
