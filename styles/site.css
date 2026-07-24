@@ -669,7 +669,14 @@ PROCESS
 
     max-width:1000px;
 
-    margin:100px auto;
+    margin:0 auto;
+
+    padding:48px 0 0;
+
+}
+.process-section .section-heading{
+
+    margin-bottom:28px;
 
 }
 
