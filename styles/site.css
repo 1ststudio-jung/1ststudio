@@ -693,9 +693,9 @@ PROCESS
 
     grid-template-columns:repeat(4,1fr);
 
-    padding:36px 0 28px;
+    padding:24px 0 20px;
 
-    min-height:clamp(320px, 38vh, 420px);
+    min-height:clamp(220px, 26vh, 300px);
 
     background: #efe8da;
 }
