@@ -151,7 +151,7 @@ img { display:block;
 }
 .hero-shade {
   background:
-    linear-gradient(90deg, rgba(12, 11, 10, .88) 0%, rgba(12, 11, 10, .58) 34%, rgba(12, 11, 10, .24) 62%, rgba(12, 11, 10, .6) 100%);
+    linear-gradient(90deg, rgba(12, 11, 10, .58) 0%, rgba(12, 11, 10, .32) 34%, rgba(12, 11, 10, .08) 62%, rgba(12, 11, 10, .28) 100%);
 }
 .hero-copy {
   position: relative;
@@ -176,6 +176,7 @@ img { display:block;
   font-weight: 300;
   line-height: .82;
   letter-spacing: 0;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, .45);
 }
 .hero-lead {
   max-width: 460px;
@@ -183,6 +184,7 @@ img { display:block;
   color: rgba(249, 244, 235, .76);
   font-size: 15px;
   line-height: 1.9;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .4);
 }
 .hero-note {
   position: absolute;
@@ -197,6 +199,7 @@ img { display:block;
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, .5);
 }
 .hero-note span + span::before {
   content: "";
@@ -235,7 +238,7 @@ img { display:block;
 }
 .text-button:hover { color: var(--accent); }
 .text-button:hover::after { background: var(--accent); opacity: 1; }
-.text-button--light { color: #f9f4eb; }
+.text-button--light { color: #f9f4eb; text-shadow: 0 1px 12px rgba(0, 0, 0, .4); }
 .text-button--light:hover { color: var(--accent); }
 
 .content-tabs {
@@ -506,8 +509,8 @@ img { display:block;
   }
   .hero-shade {
     background:
-      linear-gradient(90deg, rgba(12, 11, 10, .88), rgba(12, 11, 10, .48)),
-      linear-gradient(180deg, rgba(12, 11, 10, .1), rgba(12, 11, 10, .82));
+      linear-gradient(90deg, rgba(12, 11, 10, .5), rgba(12, 11, 10, .22)),
+      linear-gradient(180deg, rgba(12, 11, 10, .05), rgba(12, 11, 10, .42));
   }
   .hero-copy h1 {
     font-size: clamp(54px, 14vw, 64px);
