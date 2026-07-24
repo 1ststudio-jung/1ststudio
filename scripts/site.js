@@ -190,6 +190,23 @@ fetch("portfolio.json")
         })
         .join("");
     }
+
+    // 히어로 배경: 전체 사진 중 무작위로 몇 장 뽑아서 슬라이드로 사용
+    const heroSlidesEl = document.querySelector("[data-hero-slides]");
+    if (heroSlidesEl) {
+      const allImages = items.flatMap((item) => item.images);
+      const shuffled = allImages.sort(() => Math.random() - 0.5);
+      const heroPicks = shuffled.slice(0, 5);
+
+      heroSlidesEl.innerHTML = heroPicks
+        .map(
+          (src, i) =>
+            `<img alt="" class="hero-bg-slide${i === 0 ? " is-active" : ""}" src="${src}">`
+        )
+        .join("");
+
+      initHeroSlideshow();
+    }
   })
   .catch((err) => console.error("portfolio.json 로드 실패:", err));
 
@@ -315,14 +332,16 @@ imageViewer.addEventListener("touchend", e => {
     if (diff < -50) showImage(currentIndex - 1);
 });
 // 히어로 배경 슬라이드쇼 (확대 + 크로스페이드)
-const heroSlides = document.querySelectorAll(".hero-bg-slide");
-if (heroSlides.length > 1) {
-  let heroIndex = 0;
-  setInterval(() => {
-    heroSlides[heroIndex].classList.remove("is-active");
-    heroIndex = (heroIndex + 1) % heroSlides.length;
-    heroSlides[heroIndex].classList.add("is-active");
-  }, 6000);
+function initHeroSlideshow() {
+  const heroSlides = document.querySelectorAll(".hero-bg-slide");
+  if (heroSlides.length > 1) {
+    let heroIndex = 0;
+    setInterval(() => {
+      heroSlides[heroIndex].classList.remove("is-active");
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      heroSlides[heroIndex].classList.add("is-active");
+    }, 6000);
+  }
 }
 
 // 포트폴리오 카테고리 필터
