@@ -671,7 +671,7 @@ PROCESS
 
     margin:0 auto;
 
-    padding:48px 0 0;
+    padding:48px 0 40px;
 
 }
 .process-section .section-heading{
@@ -693,9 +693,9 @@ PROCESS
 
     grid-template-columns:repeat(4,1fr);
 
-    padding:64px 0 40px;
+    padding:36px 0 28px;
 
-    min-height:clamp(440px, 56vh, 620px);
+    min-height:clamp(320px, 38vh, 420px);
 
     background: #efe8da;
 }
