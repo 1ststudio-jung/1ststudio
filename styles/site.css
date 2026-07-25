@@ -113,10 +113,10 @@ img { display:block;
 
 .main-hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   display: grid;
   align-items: center;
-  padding: 98px clamp(24px, 7vw, 88px) 72px;
+  padding: 76px clamp(24px, 7vw, 88px) 56px;
   overflow: hidden;
   color: #f9f4eb;
   background: var(--dark);
@@ -132,6 +132,7 @@ img { display:block;
     width:100%;
     height:100%;
     object-fit:cover;
+  object-position: center 20%;
     display:block;
     opacity:0;
     transform:scale(1);
@@ -504,8 +505,8 @@ img { display:block;
 
 @media (max-width: 620px) {
   .main-hero {
-    min-height: 760px;
-    padding: 154px 20px 62px;
+    min-height: 640px;
+    padding: 110px 20px 46px;
   }
   .hero-shade {
     background:
