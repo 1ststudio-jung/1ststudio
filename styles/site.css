@@ -116,7 +116,7 @@ img { display:block;
   min-height: 100vh;
   display: grid;
   align-items: center;
-  padding: 112px clamp(24px, 7vw, 88px) 86px;
+  padding: 98px clamp(24px, 7vw, 88px) 72px;
   overflow: hidden;
   color: #f9f4eb;
   background: var(--dark);
