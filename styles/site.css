@@ -136,16 +136,13 @@ img { display:block;
     display:block;
     opacity:0;
     transform:scale(1);
-    transition:opacity 1.6s ease;
+    transition:opacity 1.6s ease, transform 9s ease-in-out;
 }
 .hero-bg-slide.is-active{
     opacity:1;
-    animation:heroKenBurns 9s ease-in-out forwards;
+transform:scale(1.12);
 }
-@keyframes heroKenBurns{
-    from{ transform:scale(1); }
-    to{ transform:scale(1.12); }
-}
+
 .hero-shade {
   position: absolute;
   inset: 0;
