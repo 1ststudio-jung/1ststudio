@@ -340,7 +340,7 @@ function initHeroSlideshow() {
       heroSlides[heroIndex].classList.remove("is-active");
       heroIndex = (heroIndex + 1) % heroSlides.length;
       heroSlides[heroIndex].classList.add("is-active");
-    }, 6000);
+    }, 3500);
   }
 }
 
