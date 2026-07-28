@@ -2,6 +2,8 @@
   "items": [
     {
       "id": "nom01",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -30,6 +32,8 @@
     },
     {
       "id": "nom02",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -55,6 +59,8 @@
     },
     {
       "id": "nom03",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -71,7 +77,9 @@
     },
     {
       "id": "nom04",
-      "category": "personal",
+      "title": "",
+      "date": "",
+      "category": "portrait",
       "brand": "",
       "images": [
         "image/nom04/nom01.jpg",
@@ -97,6 +105,8 @@
     },
     {
       "id": "nom05",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -114,6 +124,8 @@
     },
     {
       "id": "nom06",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -136,6 +148,8 @@
     },
     {
       "id": "nom07",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -151,6 +165,8 @@
     },
     {
       "id": "nom08",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -167,6 +183,8 @@
     },
     {
       "id": "nom09",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -181,6 +199,8 @@
     },
     {
       "id": "nom10",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -199,6 +219,8 @@
     },
     {
       "id": "nom11",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -220,12 +242,14 @@
     },
     {
       "id": "nom12",
-      "category": "pet",
+      "title": "",
+      "date": "",
+      "category": "portrait",
       "brand": "",
       "images": [
-        "image/nom12/nom03.jpg",
-        "image/nom12/nom02.jpg",
         "image/nom12/nom01.jpg",
+        "image/nom12/nom02.jpg",
+        "image/nom12/nom03.jpg",
         "image/nom12/nom04.jpg",
         "image/nom12/nom05.jpg",
         "image/nom12/nom06.jpg",
@@ -247,6 +271,8 @@
     },
     {
       "id": "nom13",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -266,6 +292,8 @@
     },
     {
       "id": "nom14",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -308,6 +336,8 @@
     },
     {
       "id": "nom15",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -341,6 +371,8 @@
     },
     {
       "id": "nom16",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -361,6 +393,8 @@
     },
     {
       "id": "nom17",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -386,6 +420,8 @@
     },
     {
       "id": "nom18",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -404,6 +440,8 @@
     },
     {
       "id": "nom19",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -429,6 +467,8 @@
     },
     {
       "id": "nom20",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -445,6 +485,8 @@
     },
     {
       "id": "nom21",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -459,6 +501,8 @@
     },
     {
       "id": "nom22",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -476,6 +520,8 @@
     },
     {
       "id": "nom23",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -496,6 +542,8 @@
     },
     {
       "id": "nom24",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -520,6 +568,8 @@
     },
     {
       "id": "nom25",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -542,6 +592,8 @@
     },
     {
       "id": "nom26",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -554,6 +606,8 @@
     },
     {
       "id": "nom27",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -563,6 +617,8 @@
     },
     {
       "id": "nom28",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -574,6 +630,8 @@
     },
     {
       "id": "nom29",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -590,6 +648,8 @@
     },
     {
       "id": "nom30",
+      "title": "",
+      "date": "",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -599,6 +659,8 @@
     },
     {
       "id": "nom31",
+      "title": "",
+      "date": "",
       "category": "personal",
       "brand": "",
       "images": [
@@ -610,6 +672,8 @@
     },
     {
       "id": "nom32",
+      "title": "",
+      "date": "",
       "category": "personal",
       "brand": "",
       "images": [
@@ -618,6 +682,8 @@
     },
     {
       "id": "nom33",
+      "title": "",
+      "date": "",
       "category": "personal",
       "brand": "",
       "images": [
@@ -642,6 +708,8 @@
     },
     {
       "id": "nom34",
+      "title": "",
+      "date": "",
       "category": "personal",
       "brand": "",
       "images": [
@@ -661,6 +729,8 @@
     },
     {
       "id": "nom35",
+      "title": "",
+      "date": "",
       "category": "personal",
       "brand": "",
       "images": [
@@ -677,6 +747,8 @@
     },
     {
       "id": "nom36",
+      "title": "",
+      "date": "",
       "category": "personal",
       "brand": "",
       "images": [
@@ -695,6 +767,8 @@
     },
     {
       "id": "nom37",
+      "title": "",
+      "date": "",
       "category": "personal",
       "brand": "",
       "images": [
@@ -711,6 +785,8 @@
     },
     {
       "id": "nom38",
+      "title": "",
+      "date": "",
       "category": "personal",
       "brand": "",
       "images": [
@@ -737,6 +813,8 @@
     },
     {
       "id": "nom39",
+      "title": "",
+      "date": "",
       "category": "pet",
       "brand": "",
       "images": [
@@ -748,6 +826,8 @@
     },
     {
       "id": "nom40",
+      "title": "",
+      "date": "",
       "category": "pet",
       "brand": "",
       "images": [
@@ -759,6 +839,8 @@
     },
     {
       "id": "nom41",
+      "title": "",
+      "date": "",
       "category": "pet",
       "brand": "",
       "images": [
@@ -773,6 +855,8 @@
     },
     {
       "id": "nom42",
+      "title": "",
+      "date": "",
       "category": "pet",
       "brand": "",
       "images": [
@@ -797,6 +881,8 @@
     },
     {
       "id": "nom43",
+      "title": "",
+      "date": "",
       "category": "pet",
       "brand": "",
       "images": [
@@ -811,6 +897,8 @@
     },
     {
       "id": "nom44",
+      "title": "",
+      "date": "",
       "category": "pet",
       "brand": "",
       "images": [
@@ -830,6 +918,8 @@
     },
     {
       "id": "nom45",
+      "title": "",
+      "date": "",
       "category": "brand",
       "brand": "예시업체A",
       "images": [
@@ -846,6 +936,8 @@
     },
     {
       "id": "nom46",
+      "title": "",
+      "date": "",
       "category": "brand",
       "brand": "예시업체A",
       "images": [
@@ -858,6 +950,8 @@
     },
     {
       "id": "nom47",
+      "title": "",
+      "date": "",
       "category": "brand",
       "brand": "예시업체B",
       "images": [
@@ -880,6 +974,8 @@
     },
     {
       "id": "nom48",
+      "title": "",
+      "date": "",
       "category": "brand",
       "brand": "예시업체B",
       "images": [
@@ -896,14 +992,6 @@
         "image/nom48/nom011.jpg",
         "image/nom48/nom012.jpg",
         "image/nom48/nom013.jpg"
-      ]
-    },
-    {
-      "id": "nom49",
-      "category": "pet",
-      "brand": "",
-      "images": [
-        "/nom015.jpg"
       ]
     }
   ]
