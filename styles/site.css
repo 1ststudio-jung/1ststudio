@@ -62,6 +62,10 @@ img { display:block;
   color: #111111;
   background: var(--paper);
   border-bottom: 1px solid var(--line);
+  transition: transform .3s var(--ease);
+}
+.site-header.is-hidden {
+  transform: translateY(-100%);
 }
 .brand {
   display: inline-flex;
