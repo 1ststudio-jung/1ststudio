@@ -21,6 +21,8 @@ collections:
             summary: "{{fields.id}} — {{fields.category}}"
             fields:
               - { label: "ID (폴더명과 동일하게, 예: nom49)", name: "id", widget: "string" }
+              - { label: "제목", name: "title", widget: "string", required: false, default: "" }
+              - { label: "날짜 (예: 2026년 여름)", name: "date", widget: "string", required: false, default: "" }
               - label: "카테고리"
                 name: "category"
                 widget: "select"
