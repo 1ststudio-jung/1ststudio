@@ -28,7 +28,7 @@ collections:
                 widget: "select"
                 options:
                   - { label: "Portrait", value: "portrait" }
-                  - { label: "Personal", value: "personal" }
+                  - { label: "Profile", value: "personal" }
                   - { label: "Pet", value: "pet" }
                   - { label: "Brand", value: "brand" }
               - { label: "업체명 (Brand일 때만 입력)", name: "brand", widget: "string", required: false, default: "" }
