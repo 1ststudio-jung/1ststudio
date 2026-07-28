@@ -418,14 +418,14 @@
     {
       "id": "nom18",
       "title": "",
-      "date": "",
+      "date": "SEP 2025",
       "category": "portrait",
       "brand": "",
       "images": [
+        "image/nom18/nom04.jpg",
         "image/nom18/nom01.jpg",
         "image/nom18/nom02.jpg",
         "image/nom18/nom03.jpg",
-        "image/nom18/nom04.jpg",
         "image/nom18/nom05.jpg",
         "image/nom18/nom06.jpg",
         "image/nom18/nom07.jpg",
@@ -438,25 +438,25 @@
     {
       "id": "nom19",
       "title": "",
-      "date": "",
-      "category": "portrait",
+      "date": "AUG 2025",
+      "category": "pet",
       "brand": "",
       "images": [
+        "image/nom19/nom05.jpg",
         "image/nom19/nom01.jpg",
         "image/nom19/nom02.jpg",
         "image/nom19/nom03.jpg",
         "image/nom19/nom04.jpg",
-        "image/nom19/nom05.jpg",
         "image/nom19/nom06.jpg",
         "image/nom19/nom07.jpg",
         "image/nom19/nom08.jpg",
-        "image/nom19/nom09.jpg",
         "image/nom19/nom010.jpg",
         "image/nom19/nom011.jpg",
         "image/nom19/nom012.jpg",
         "image/nom19/nom013.jpg",
         "image/nom19/nom014.jpg",
         "image/nom19/nom015.jpg",
+        "image/nom19/nom016.jpg",
         "image/nom19/nom016.jpg",
         "image/nom19/nom017.jpg",
         "image/nom19/nom018.jpg"
@@ -465,7 +465,7 @@
     {
       "id": "nom20",
       "title": "",
-      "date": "",
+      "date": "SEP 2025",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -483,12 +483,12 @@
     {
       "id": "nom21",
       "title": "",
-      "date": "",
-      "category": "portrait",
+      "date": "MAY 2025",
+      "category": "personal",
       "brand": "",
       "images": [
-        "image/nom21/nom01.jpg",
         "image/nom21/nom02.jpg",
+        "image/nom21/nom01.jpg",
         "image/nom21/nom03.jpg",
         "image/nom21/nom04.jpg",
         "image/nom21/nom05.jpg",
@@ -499,12 +499,12 @@
     {
       "id": "nom22",
       "title": "",
-      "date": "",
-      "category": "portrait",
+      "date": "SEP 2025",
+      "category": "pet",
       "brand": "",
       "images": [
-        "image/nom22/nom01.jpg",
         "image/nom22/nom02.jpg",
+        "image/nom22/nom01.jpg",
         "image/nom22/nom03.jpg",
         "image/nom22/nom04.jpg",
         "image/nom22/nom05.jpg",
@@ -518,10 +518,11 @@
     {
       "id": "nom23",
       "title": "",
-      "date": "",
+      "date": "SEP 2025",
       "category": "portrait",
       "brand": "",
       "images": [
+        "image/nom23/nom08.jpg",
         "image/nom23/nom01.jpg",
         "image/nom23/nom02.jpg",
         "image/nom23/nom03.jpg",
@@ -529,7 +530,6 @@
         "image/nom23/nom05.jpg",
         "image/nom23/nom06.jpg",
         "image/nom23/nom07.jpg",
-        "image/nom23/nom08.jpg",
         "image/nom23/nom09.jpg",
         "image/nom23/nom10.jpg",
         "image/nom23/nom11.jpg",
@@ -540,7 +540,7 @@
     {
       "id": "nom24",
       "title": "",
-      "date": "",
+      "date": "SEP 2025",
       "category": "portrait",
       "brand": "",
       "images": [
