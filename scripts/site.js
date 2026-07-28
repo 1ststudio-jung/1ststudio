@@ -340,7 +340,7 @@ function initHeroSlideshow() {
       heroSlides[heroIndex].classList.remove("is-active");
       heroIndex = (heroIndex + 1) % heroSlides.length;
       heroSlides[heroIndex].classList.add("is-active");
-    }, 3500);
+    }, 6000);
   }
 }
 
@@ -362,5 +362,23 @@ if (portfolioFilters) {
       const match = filter === "all" || card.dataset.category === filter;
       card.hidden = !match;
     });
+  });
+}
+
+// 스크롤 방향에 따라 헤더 숨김/등장
+const siteHeader = document.querySelector(".site-header");
+let lastScrollY = window.scrollY;
+
+if (siteHeader) {
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 120) {
+      siteHeader.classList.add("is-hidden");
+    } else {
+      siteHeader.classList.remove("is-hidden");
+    }
+
+    lastScrollY = currentScrollY;
   });
 }
