@@ -612,7 +612,7 @@ img { display:block;
   }
   .main-nav::-webkit-scrollbar { display: none; }
   .portfolio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .site-footer {
     grid-template-columns: 1fr;
@@ -659,7 +659,7 @@ img { display:block;
     text-align: left;
   }
   .portfolio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1231,7 +1231,7 @@ CTA
     /* Portfolio */
 
     .portfolio-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(3, minmax(0, 1fr));
     }
 
 
