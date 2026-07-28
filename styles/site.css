@@ -709,20 +709,10 @@ img { display:block;
 .portfolio-card[hidden]{
     display:none;
 }
-.portfolio-label{
-    margin:12px 0 0;
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:.04em;
-    text-align:center;
-    color:var(--soft-ink);
-    text-transform:uppercase;
-}
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: clamp(8px, 1.2vw, 18px);
-  row-gap: clamp(28px, 3vw, 48px);
+  gap: 4px;
 }
 .portfolio-card {
  position:relative;
@@ -734,7 +724,7 @@ img { display:block;
 .portfolio-card figure {
  position:relative;
   margin: 0;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--paper);
 }
