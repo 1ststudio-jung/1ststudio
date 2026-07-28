@@ -1327,6 +1327,20 @@ CTA
     max-height:78vh;
     object-fit:contain;
 }
+.image-viewer img.slide-next{
+    animation: viewerSlideFromRight .35s ease;
+}
+.image-viewer img.slide-prev{
+    animation: viewerSlideFromLeft .35s ease;
+}
+@keyframes viewerSlideFromRight{
+    from{ transform:translateX(48px); opacity:0; }
+    to{ transform:translateX(0); opacity:1; }
+}
+@keyframes viewerSlideFromLeft{
+    from{ transform:translateX(-48px); opacity:0; }
+    to{ transform:translateX(0); opacity:1; }
+}
 
 .viewer-thumbs{
     display:flex;
