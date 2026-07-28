@@ -2,8 +2,8 @@
   "items": [
     {
       "id": "nom01",
-      "title": "Portrait",
-      "date": "2026.06",
+      "title": "",
+      "date": "JUN 2026",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -33,7 +33,7 @@
     {
       "id": "nom02",
       "title": "",
-      "date": "",
+      "date": "APR 2026",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -60,17 +60,14 @@
     {
       "id": "nom03",
       "title": "",
-      "date": "",
-      "category": "portrait",
+      "date": "JUN 2026",
+      "category": "personal",
       "brand": "",
       "images": [
-        "image/nom03/nom01.jpg",
-        "image/nom03/nom02.jpg",
-        "image/nom03/nom03.jpg",
+        "image/nom03/nom07.jpg",
         "image/nom03/nom04.jpg",
         "image/nom03/nom05.jpg",
         "image/nom03/nom06.jpg",
-        "image/nom03/nom07.jpg",
         "image/nom03/nom08.jpg",
         "image/nom03/nom09.jpg"
       ]
@@ -78,7 +75,7 @@
     {
       "id": "nom04",
       "title": "",
-      "date": "",
+      "date": "MAR 2026",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -106,13 +103,13 @@
     {
       "id": "nom05",
       "title": "",
-      "date": "",
-      "category": "portrait",
+      "date": "MAR 2026",
+      "category": "personal",
       "brand": "",
       "images": [
+        "image/nom05/nom03.jpg",
         "image/nom05/nom01.jpg",
         "image/nom05/nom02.jpg",
-        "image/nom05/nom03.jpg",
         "image/nom05/nom04.jpg",
         "image/nom05/nom05.jpg",
         "image/nom05/nom06.jpg",
@@ -125,10 +122,11 @@
     {
       "id": "nom06",
       "title": "",
-      "date": "",
-      "category": "portrait",
-      "brand": "",
+      "date": "JUN 2026",
+      "category": "brand",
+      "brand": "Pilatesyoga_gyeul",
       "images": [
+        "image/nom06/nom015.jpg",
         "image/nom06/nom01.jpg",
         "image/nom06/nom02.jpg",
         "image/nom06/nom03.jpg",
@@ -142,15 +140,14 @@
         "image/nom06/nom011.jpg",
         "image/nom06/nom012.jpg",
         "image/nom06/nom013.jpg",
-        "image/nom06/nom014.jpg",
-        "image/nom06/nom015.jpg"
+        "image/nom06/nom014.jpg"
       ]
     },
     {
       "id": "nom07",
       "title": "",
-      "date": "",
-      "category": "portrait",
+      "date": "APR 2026",
+      "category": "personal",
       "brand": "",
       "images": [
         "image/nom07/nom02.jpg",
@@ -166,10 +163,11 @@
     {
       "id": "nom08",
       "title": "",
-      "date": "",
+      "date": "APR 2026",
       "category": "portrait",
       "brand": "",
       "images": [
+        "image/nom08/nom010.jpg",
         "image/nom08/nom02.jpg",
         "image/nom08/nom03.jpg",
         "image/nom08/nom04.jpg",
@@ -177,14 +175,13 @@
         "image/nom08/nom06.jpg",
         "image/nom08/nom07.jpg",
         "image/nom08/nom08.jpg",
-        "image/nom08/nom09.jpg",
-        "image/nom08/nom010.jpg"
+        "image/nom08/nom09.jpg"
       ]
     },
     {
       "id": "nom09",
       "title": "",
-      "date": "",
+      "date": "SEP 2025",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -200,10 +197,11 @@
     {
       "id": "nom10",
       "title": "",
-      "date": "",
+      "date": "JUL 2025",
       "category": "portrait",
       "brand": "",
       "images": [
+        "image/nom10/nom011.jpg",
         "image/nom10/nom01.jpg",
         "image/nom10/nom02.jpg",
         "image/nom10/nom03.jpg",
@@ -213,14 +211,13 @@
         "image/nom10/nom07.jpg",
         "image/nom10/nom08.jpg",
         "image/nom10/nom09.jpg",
-        "image/nom10/nom010.jpg",
-        "image/nom10/nom011.jpg"
+        "image/nom10/nom010.jpg"
       ]
     },
     {
       "id": "nom11",
       "title": "",
-      "date": "",
+      "date": "NOV 2025",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -243,10 +240,11 @@
     {
       "id": "nom12",
       "title": "",
-      "date": "",
-      "category": "portrait",
+      "date": "OCT 2025",
+      "category": "pet",
       "brand": "",
       "images": [
+        "image/nom12/nom012.jpg",
         "image/nom12/nom01.jpg",
         "image/nom12/nom02.jpg",
         "image/nom12/nom03.jpg",
@@ -258,7 +256,6 @@
         "image/nom12/nom09.jpg",
         "image/nom12/nom010.jpg",
         "image/nom12/nom011.jpg",
-        "image/nom12/nom012.jpg",
         "image/nom12/nom013.jpg",
         "image/nom12/nom014.jpg",
         "image/nom12/nom015.jpg",
@@ -272,8 +269,8 @@
     {
       "id": "nom13",
       "title": "",
-      "date": "",
-      "category": "portrait",
+      "date": "AUG 2025",
+      "category": "personal",
       "brand": "",
       "images": [
         "image/nom13/nom01.jpg",
@@ -293,14 +290,14 @@
     {
       "id": "nom14",
       "title": "",
-      "date": "",
+      "date": "AUG 2025",
       "category": "portrait",
       "brand": "",
       "images": [
+        "image/nom14/nom05.jpg",
         "image/nom14/nom02.jpg",
         "image/nom14/nom03.jpg",
         "image/nom14/nom04.jpg",
-        "image/nom14/nom05.jpg",
         "image/nom14/nom06.jpg",
         "image/nom14/nom07.jpg",
         "image/nom14/nom08.jpg",
@@ -337,7 +334,7 @@
     {
       "id": "nom15",
       "title": "",
-      "date": "",
+      "date": "OCT 2025",
       "category": "portrait",
       "brand": "",
       "images": [
@@ -372,16 +369,16 @@
     {
       "id": "nom16",
       "title": "",
-      "date": "",
+      "date": "OCT 2025",
       "category": "portrait",
       "brand": "",
       "images": [
+        "image/nom16/nom06.jpg",
         "image/nom16/nom01.jpg",
         "image/nom16/nom02.jpg",
         "image/nom16/nom03.jpg",
         "image/nom16/nom04.jpg",
         "image/nom16/nom05.jpg",
-        "image/nom16/nom06.jpg",
         "image/nom16/nom07.jpg",
         "image/nom16/nom08.jpg",
         "image/nom16/nom09.jpg",
@@ -394,17 +391,17 @@
     {
       "id": "nom17",
       "title": "",
-      "date": "",
-      "category": "portrait",
+      "date": "OCT 2025",
+      "category": "pet",
       "brand": "",
       "images": [
+        "image/nom17/nom07.jpg",
         "image/nom17/nom01.jpg",
         "image/nom17/nom02.jpg",
         "image/nom17/nom03.jpg",
         "image/nom17/nom04.jpg",
         "image/nom17/nom05.jpg",
         "image/nom17/nom06.jpg",
-        "image/nom17/nom07.jpg",
         "image/nom17/nom08.jpg",
         "image/nom17/nom09.jpg",
         "image/nom17/nom010.jpg",
