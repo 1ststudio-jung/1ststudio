@@ -176,13 +176,15 @@ fetch("portfolio.json")
         .map((item) => {
           const labelText =
             item.category === "brand" ? item.brand : capitalize(item.category);
-          const moreBadge =
-            item.images.length > 1 ? `<span class="portfolio-more">+</span>` : "";
+          const categoryText = capitalize(item.category);
           return `
             <article class="portfolio-card" data-category="${item.category}">
               <figure>
                 <img class="project-trigger" data-project="${item.id}" src="${item.images[0]}">
-                ${moreBadge}
+                <div class="portfolio-overlay">
+                  ${item.title ? `<span class="portfolio-overlay-title">${item.title}</span>` : ""}
+                  <span class="portfolio-overlay-meta">${[item.date, categoryText].filter(Boolean).join(" · ")}</span>
+                </div>
               </figure>
               <p class="portfolio-label">${labelText}</p>
             </article>
