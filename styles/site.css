@@ -9,6 +9,7 @@
   --accent: #a63b2e;
   --ease: cubic-bezier(.22, 1, .36, 1);
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --script: "Dancing Script", cursive;
   --sans: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -690,10 +691,11 @@ img { display:block;
     border-radius:20px;
     background:transparent;
     color:var(--soft-ink);
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.08em;
-    text-transform:uppercase;
+    font-family:var(--script);
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:.02em;
+    text-transform:none;
     cursor:pointer;
     transition:background .2s ease, border-color .2s ease, color .2s ease;
 }
@@ -773,15 +775,17 @@ img { display:block;
 }
 .portfolio-overlay-title{
   color:#fff;
-  font-family:var(--serif);
-  font-size:18px;
-  font-weight:400;
+  font-family:var(--script);
+  font-size:26px;
+  font-weight:600;
 }
 .portfolio-overlay-meta{
   color:rgba(255,255,255,.85);
-  font-size:11px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+  font-family:var(--script);
+  font-size:16px;
+  font-weight:600;
+  letter-spacing:.02em;
+  text-transform:none;
 }
 
 /*=============================
