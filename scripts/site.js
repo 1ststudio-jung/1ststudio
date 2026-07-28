@@ -191,16 +191,26 @@ fetch("portfolio.json")
         .join("");
     }
 
-    // 히어로 배경: 전체 사진 중 무작위로 몇 장 뽑아서 반응형 그리드로 동시에 보여줌
+    // 히어로 배경: 무작위 16장을 4장씩 4묶음으로 나눠 그룹 단위로 페이드
     const heroSlidesEl = document.querySelector("[data-hero-slides]");
     if (heroSlidesEl) {
       const allImages = items.flatMap((item) => item.images);
       const shuffled = allImages.sort(() => Math.random() - 0.5);
-      const heroPicks = shuffled.slice(0, 6);
+      const heroPicks = shuffled.slice(0, 16);
 
-      heroSlidesEl.innerHTML = heroPicks
-        .map((src) => `<img alt="" class="hero-bg-slide" src="${src}">`)
+      const groups = [];
+      for (let i = 0; i < heroPicks.length; i += 4) {
+        groups.push(heroPicks.slice(i, i + 4));
+      }
+
+      heroSlidesEl.innerHTML = groups
+        .map((group, gi) => {
+          const imgs = group.map((src) => `<img alt="" src="${src}">`).join("");
+          return `<div class="hero-bg-group${gi === 0 ? " is-active" : ""}">${imgs}</div>`;
+        })
         .join("");
+
+      initHeroSlideshow();
     }
   })
   .catch((err) => console.error("portfolio.json 로드 실패:", err));
@@ -327,6 +337,19 @@ imageViewer.addEventListener("touchend", e => {
     if (diff < -50) showImage(currentIndex - 1);
 });
 // 히어로 배경 슬라이드쇼 (확대 + 크로스페이드)
+// 히어로 배경 그룹 순환 (페이드 + 줌)
+function initHeroSlideshow() {
+  const groups = document.querySelectorAll(".hero-bg-group");
+  if (groups.length > 1) {
+    let idx = 0;
+    setInterval(() => {
+      groups[idx].classList.remove("is-active");
+      idx = (idx + 1) % groups.length;
+      groups[idx].classList.add("is-active");
+    }, 6000);
+  }
+}
+
 // 포트폴리오 카테고리 필터
 const portfolioFilters = document.querySelector("[data-portfolio-filters]");
 
