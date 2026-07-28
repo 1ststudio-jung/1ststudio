@@ -235,10 +235,13 @@ if (portfolioGridEl) {
 function openViewer(index) {
     currentIndex = index;
     viewerImage.src = currentProject[currentIndex];
+    viewerImage.classList.remove("slide-next", "slide-prev");
 
     viewerThumbs.innerHTML = currentProject
       .map((src, i) => `<img src="${src}" class="${i === currentIndex ? "is-active" : ""}" data-index="${i}">`)
       .join("");
+
+    updateViewerNav();
 
     imageViewer.classList.add("active");
     document.body.style.overflow = "hidden";
@@ -252,7 +255,7 @@ function closeViewer() {
 viewerThumbs.addEventListener("click", e => {
     const thumb = e.target.closest("img");
     if (!thumb) return;
-    showImage(Number(thumb.dataset.index));
+    showImage(Number(thumb.dataset.index), null);
 });
 
 // 닫기
@@ -268,34 +271,43 @@ imageViewer.addEventListener("click", e => {
     }
 
 });
-function showImage(index){
+function showImage(index, direction){
 
-    if(index < 0){
-        index = currentProject.length - 1;
-    }
-
-    if(index >= currentProject.length){
-        index = 0;
+    // 처음/마지막에서는 더 이상 넘어가지 않음 (순환 없음)
+    if (index < 0 || index >= currentProject.length) {
+        return;
     }
 
     currentIndex = index;
     viewerImage.src = currentProject[currentIndex];
 
+    viewerImage.classList.remove("slide-next", "slide-prev");
+    void viewerImage.offsetWidth; // 애니메이션 재시작을 위한 강제 리플로우
+    if (direction === "next") viewerImage.classList.add("slide-next");
+    if (direction === "prev") viewerImage.classList.add("slide-prev");
+
     viewerThumbs.querySelectorAll("img").forEach((thumb, i) => {
         thumb.classList.toggle("is-active", i === currentIndex);
     });
 
+    updateViewerNav();
+
+}
+
+function updateViewerNav(){
+    viewerPrev.style.display = currentIndex === 0 ? "none" : "";
+    viewerNext.style.display = currentIndex === currentProject.length - 1 ? "none" : "";
 }
 
 viewerPrev.addEventListener("click", () => {
 
-    showImage(currentIndex - 1);
+    showImage(currentIndex - 1, "prev");
 
 });
 
 viewerNext.addEventListener("click", () => {
 
-    showImage(currentIndex + 1);
+    showImage(currentIndex + 1, "next");
 
 });
 // ESC
@@ -306,12 +318,12 @@ document.addEventListener("keydown", e => {
     if (imageViewer.classList.contains("active")) {
 
         if (e.key === "ArrowRight") {
-            showImage(currentIndex + 1);
+            showImage(currentIndex + 1, "next");
             return;
         }
 
         if (e.key === "ArrowLeft") {
-            showImage(currentIndex - 1);
+            showImage(currentIndex - 1, "prev");
             return;
         }
 
@@ -335,8 +347,8 @@ imageViewer.addEventListener("touchend", e => {
 
     const diff = touchStartX - touchEndX;
 
-    if (diff > 50) showImage(currentIndex + 1);
-    if (diff < -50) showImage(currentIndex - 1);
+    if (diff > 50) showImage(currentIndex + 1, "next");
+    if (diff < -50) showImage(currentIndex - 1, "prev");
 });
 // 히어로 배경 슬라이드쇼 (확대 + 크로스페이드)
 // 히어로 배경 그룹 순환 (페이드 + 줌)
