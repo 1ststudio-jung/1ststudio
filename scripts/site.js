@@ -175,7 +175,11 @@ fetch("portfolio.json")
       portfolioGridEl.innerHTML = items
         .map((item) => {
           const labelText =
-            item.category === "brand" ? item.brand : capitalize(item.category);
+            item.category === "brand"
+              ? item.brand
+              : item.category === "personal"
+              ? "Profile"
+              : capitalize(item.category);
           return `
             <article class="portfolio-card" data-category="${item.category}">
               <figure>
