@@ -10,7 +10,7 @@ const conversationFormEl = document.querySelector("[data-conversation-form-el]")
 const conversationSuccess = document.querySelector("[data-conversation-success]");
 
 // 구글 시트에 연동된 Apps Script 웹 앱 URL을 여기에 붙여넣으세요.
-const CONTACT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyCEHWpHGmF0_hrPpsTkK6EytTcVGGQtsXHmj6TMJ1H5mOCq2Aa-ueEcT8pihbeYpBOEg/exec";
+const CONTACT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxPDeidpP1Y94yVcW-RcZDgwJJSIJ7LnjUd5CS7n0kJpnCSGW-8LAM4c1l0ezMvyT3MFg/exec";
 
 if (conversationFormEl) {
   const messageField = conversationFormEl.querySelector("textarea[name='message']");
