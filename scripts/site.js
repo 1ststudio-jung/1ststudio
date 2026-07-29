@@ -13,6 +13,15 @@ const conversationSuccess = document.querySelector("[data-conversation-success]"
 const CONTACT_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
 
 if (conversationFormEl) {
+  const messageField = conversationFormEl.querySelector("textarea[name='message']");
+  if (messageField) {
+    const autoGrow = () => {
+      messageField.style.height = "auto";
+      messageField.style.height = messageField.scrollHeight + "px";
+    };
+    messageField.addEventListener("input", autoGrow);
+  }
+
   conversationFormEl.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -20,12 +29,13 @@ if (conversationFormEl) {
     const formData = new FormData(conversationFormEl);
     const payload = {
       company: formData.get("name") || "",
+      manager: formData.get("manager") || "",
       contact: formData.get("contact") || "",
       message: formData.get("message") || ""
     };
 
     submitButton.disabled = true;
-    submitButton.textContent = "Sending...";
+    submitButton.textContent = "전송 중...";
 
     fetch(CONTACT_SCRIPT_URL, {
       method: "POST",
@@ -40,7 +50,7 @@ if (conversationFormEl) {
       })
       .finally(() => {
         submitButton.disabled = false;
-        submitButton.textContent = "Send inquiry";
+        submitButton.textContent = "문의하기";
       });
   });
 }
