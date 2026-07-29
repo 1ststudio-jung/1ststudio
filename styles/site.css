@@ -384,12 +384,6 @@ img { display:block;
   line-height: .98;
   overflow-wrap: break-word;
 }
-.korean {
-  color: var(--soft-ink);
-  line-height: 1.85;
-  word-break: keep-all;
-}
-
 .portfolio-section {
   padding: clamp(32px, 4vw, 56px) clamp(12px, 3vw, 40px) clamp(64px, 9vw, 120px);
   background: var(--paper);
@@ -429,10 +423,12 @@ img { display:block;
   box-shadow: -28px 0 80px rgba(18, 16, 14, .24);
   transform: translateX(34px);
   transition: transform .28s var(--ease);
+  display: flex;
+  flex-direction: column;
 }
 .contact-drawer.is-open .contact-panel { transform: translateX(0); }
 .contact-close {
-  float: right;
+  align-self: flex-end;
   min-height: 36px;
   padding: 0 13px;
   border: 1px solid var(--line);
@@ -443,7 +439,7 @@ img { display:block;
   text-transform: uppercase;
 }
 .contact-info {
-  margin-top: 36px;
+  margin-top: auto;
   padding-top: 24px;
   border-top: 1px solid var(--line);
 }
@@ -510,7 +506,11 @@ img { display:block;
   font-family: inherit;
   font-size: 14px;
   outline: none;
-  resize: vertical;
+}
+.conversation-form textarea {
+  resize: none;
+  overflow: hidden;
+  line-height: 1.6;
 }
 
 .conversation-form input:focus,
@@ -519,9 +519,9 @@ img { display:block;
 }
 
 .conversation-submit {
-  align-self: flex-start;
+  align-self: flex-end;
   margin-top: 8px;
-  padding: 12px 20px;
+  padding: 12px 28px;
   border: 1px solid var(--ink);
   background: var(--ink);
   color: #fff;
