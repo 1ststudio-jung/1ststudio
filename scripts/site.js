@@ -378,10 +378,17 @@ if (portfolioFilters) {
     btn.classList.add("is-active");
 
     const filter = btn.dataset.filter;
-    document.querySelectorAll(".portfolio-card").forEach((card) => {
-      const match = filter === "all" || card.dataset.category === filter;
-      card.hidden = !match;
-    });
+    const grid = document.querySelector("[data-portfolio-grid]");
+
+    if (grid) grid.classList.add("is-fading");
+
+    setTimeout(() => {
+      document.querySelectorAll(".portfolio-card").forEach((card) => {
+        const match = filter === "all" || card.dataset.category === filter;
+        card.hidden = !match;
+      });
+      if (grid) grid.classList.remove("is-fading");
+    }, 200);
   });
 }
 
