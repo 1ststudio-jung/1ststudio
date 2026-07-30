@@ -1054,6 +1054,23 @@
         "/image/06.JPG",
         "/image/07.JPG"
       ]
+    },
+    {
+      "id": "nom53",
+      "title": "",
+      "date": "DEC 2025",
+      "category": "personal",
+      "brand": "",
+      "images": [
+        "/image/251215_최지홍3521 1.jpg",
+        "/image/251215_최지홍3531 1.jpg",
+        "/image/251215_최지홍6544 1.jpg",
+        "/image/251215_최지홍6549 1.jpg",
+        "/image/251215_최지홍6566 1.jpg",
+        "/image/251215_최지홍6569 1.jpg",
+        "/image/251215_최지홍6607 1.jpg",
+        "/image/251215_최지홍6675 1.jpg"
+      ]
     }
   ]
 }
