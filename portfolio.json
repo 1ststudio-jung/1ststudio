@@ -34,7 +34,7 @@
       "id": "nom02",
       "title": "",
       "date": "APR 2026",
-      "category": "portrait",
+      "category": "personal",
       "brand": "",
       "images": [
         "image/nom02/nom02.jpg",
@@ -1003,6 +1003,16 @@
         "/image/260718_9772.jpg",
         "/image/260718_7423.jpg",
         "/image/260718_7429.jpg"
+      ]
+    },
+    {
+      "id": "nom50",
+      "title": "",
+      "date": "NOV 2025",
+      "category": "pet",
+      "brand": "",
+      "images": [
+        "/image/251126_일복_삐용3036.jpg"
       ]
     }
   ]
