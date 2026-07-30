@@ -501,16 +501,17 @@ img { display:block;
 
 .conversation-form input:focus,
 .conversation-form textarea:focus {
-  border-color: var(--ink);
-  box-shadow: 0 0 0 3px rgba(23, 20, 17, .08);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(166, 59, 46, .12);
 }
 
 .conversation-submit {
   align-self: flex-end;
   margin-top: 8px;
-  padding: 13px 30px;
-  border: 1px solid var(--ink);
-  background: var(--ink);
+  padding: 14px 32px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
   color: #fff;
   font-family: inherit;
   font-size: 11px;
@@ -521,11 +522,13 @@ img { display:block;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  transition: background .2s ease, border-color .2s ease;
+  box-shadow: 0 10px 24px rgba(166, 59, 46, .28);
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 .conversation-submit:hover {
-  background: var(--soft-ink);
-  border-color: var(--soft-ink);
+  background: #8a3120;
+  box-shadow: 0 14px 30px rgba(166, 59, 46, .38);
+  transform: translateY(-1px);
 }
 .conversation-submit.is-loading::after {
   content: "";
@@ -1106,7 +1109,7 @@ CTA
     height:88px;
     border-radius:50%;
 
-    background:var(--ink);
+    background:var(--accent);
     color:#fff;
     border:none;
 
@@ -1115,13 +1118,20 @@ CTA
     letter-spacing:.02em;
 
     cursor:pointer;
-    box-shadow:0 8px 24px rgba(23,20,17,.28);
+    box-shadow:0 8px 28px rgba(166,59,46,.4);
     transition:transform .2s ease, background .2s ease;
+    animation: floatingPulse 2.6s ease-in-out infinite;
 }
 
 .floating-contact:hover{
-    background:var(--soft-ink);
-    transform:scale(1.06);
+    background:#8a3120;
+    transform:scale(1.08);
+    animation-play-state: paused;
+}
+
+@keyframes floatingPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
 }
 
 @media (max-width:620px){
