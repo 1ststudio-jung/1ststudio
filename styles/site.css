@@ -447,13 +447,17 @@ img { display:block;
 }
 .conversation-form {
   margin-top: 28px;
-  padding-top: 0;
+  padding: 28px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 28px rgba(23, 20, 17, .08);
 }
 
 .conversation-intro {
   margin: 0 0 24px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.8;
+  color: var(--soft-ink);
 }
 
 .conversation-form form {
@@ -469,22 +473,25 @@ img { display:block;
 }
 
 .conversation-form label span {
-  font-size: 10px;
-  letter-spacing: .12em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
   text-transform: uppercase;
+  color: var(--soft-ink);
 }
 
 .conversation-form input,
 .conversation-form textarea {
   width: 100%;
-  padding: 12px 0;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
-  background: transparent;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg);
   color: inherit;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
 .conversation-form textarea {
   resize: none;
@@ -494,26 +501,43 @@ img { display:block;
 
 .conversation-form input:focus,
 .conversation-form textarea:focus {
-  border-bottom-color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(23, 20, 17, .08);
 }
 
 .conversation-submit {
   align-self: flex-end;
   margin-top: 8px;
-  padding: 12px 28px;
+  padding: 13px 30px;
   border: 1px solid var(--ink);
   background: var(--ink);
   color: #fff;
   font-family: inherit;
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   transition: background .2s ease, border-color .2s ease;
 }
 .conversation-submit:hover {
   background: var(--soft-ink);
   border-color: var(--soft-ink);
+}
+.conversation-submit.is-loading::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, .35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: conversationSpin .7s linear infinite;
+}
+@keyframes conversationSpin {
+  to { transform: rotate(360deg); }
 }
 
 .conversation-submit:disabled {
