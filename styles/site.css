@@ -432,6 +432,33 @@ img { display:block;
   align-items: center;
   justify-content: space-between;
 }
+.contact-info {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.contact-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 14px;
+  align-items: baseline;
+  padding: 8px 0;
+}
+.contact-row span {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.contact-row strong {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: right;
+  color: var(--soft-ink);
+}
 .contact-panel-head .eyebrow {
   margin: 0;
 }
@@ -473,7 +500,7 @@ img { display:block;
 }
 
 .conversation-form label span {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
