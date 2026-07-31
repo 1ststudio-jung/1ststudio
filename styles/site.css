@@ -465,7 +465,7 @@ img { display:block;
   pointer-events: auto;
 }
 .contact-panel {
-  width: min(980px, 100%);
+  width: min(620px, 100%);
   height: 100%;
   overflow-y: auto;
   background: var(--paper);
@@ -476,47 +476,8 @@ img { display:block;
 }
 .contact-drawer.is-open .contact-panel { transform: translateX(0); }
 
-.contact-panel-body {
-  display: flex;
-  align-items: stretch;
-  min-height: 100%;
-}
-
-.contact-visual {
-  position: relative;
-  flex: 0 0 38%;
-  display: none;
-}
-.contact-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.contact-visual-quote {
-  position: absolute;
-  left: 28px;
-  right: 28px;
-  bottom: 32px;
-  margin: 0;
-  color: #f9f4eb;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 20px;
-  line-height: 1.5;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, .5);
-}
-
 .contact-panel-main {
-  flex: 1;
-  min-width: 0;
   padding: clamp(28px, 5vw, 64px);
-}
-
-@media (min-width: 860px) {
-  .contact-visual {
-    display: block;
-  }
 }
 
 .contact-panel-head {
@@ -685,11 +646,25 @@ img { display:block;
   display: flex;
   flex-direction: column;
   gap: 18px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  margin-top: 0;
+  padding: 0 20px;
+  background: rgba(23, 20, 17, .02);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: max-height .45s var(--ease), opacity .3s ease, transform .35s var(--ease), margin-top .35s var(--ease), padding .35s var(--ease), border-color .3s ease;
+}
+.conversation-details.is-open {
+  max-height: 1000px;
+  opacity: 1;
+  transform: translateY(0);
   margin-top: 4px;
   padding: 20px;
-  background: rgba(23, 20, 17, .02);
-  border: 1px dashed var(--line);
-  border-radius: 6px;
+  border-color: var(--line);
+  border-style: dashed;
 }
 .conversation-submit.is-loading::after {
   content: "";
