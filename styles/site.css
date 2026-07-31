@@ -368,20 +368,22 @@ img { display:block;
 .faq-item {
   border-bottom: 1px solid var(--line);
 }
-.faq-item summary {
+.faq-question {
   position: relative;
+  display: block;
+  width: 100%;
   padding: 16px 32px 16px 0;
+  border: none;
+  background: none;
+  text-align: left;
   color: var(--ink);
+  font-family: inherit;
   font-size: 15px;
   font-weight: 500;
   line-height: 1.5;
   cursor: pointer;
-  list-style: none;
 }
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-.faq-item summary::after {
+.faq-question::after {
   content: "+";
   position: absolute;
   right: 4px;
@@ -389,13 +391,24 @@ img { display:block;
   color: var(--muted);
   font-size: 18px;
   font-weight: 400;
-  transition: transform .2s ease;
+  transition: transform .3s var(--ease);
 }
-.faq-item[open] summary::after {
-  content: "+";
+.faq-item.is-open .faq-question::after {
   transform: rotate(45deg);
 }
-.faq-item p {
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: max-height .4s var(--ease), opacity .3s ease, transform .3s var(--ease);
+}
+.faq-item.is-open .faq-answer {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+}
+.faq-answer p {
   margin: 0 0 20px;
   color: var(--soft-ink);
   font-size: 14px;
