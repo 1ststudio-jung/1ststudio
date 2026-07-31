@@ -265,15 +265,6 @@ img { display:block;
 .text-button--light { color: #f9f4eb; text-shadow: 0 1px 12px rgba(0, 0, 0, .4); }
 .text-button--light:hover { color: var(--ink); }
 
-.content-tabs {
-  background: var(--paper);
-  scroll-margin-top: 80px;
-        padding-top:72px;
-
-}
-.tab-panel[hidden] {
-  display: none;
-}
 
 /* About text block (label + paragraph) */
 .about-text {
@@ -445,7 +436,7 @@ img { display:block;
   overflow-wrap: break-word;
 }
 .portfolio-section {
-  padding: clamp(32px, 4vw, 56px) clamp(12px, 3vw, 40px) clamp(64px, 9vw, 120px);
+  padding: clamp(104px, 12vw, 128px) clamp(12px, 3vw, 40px) clamp(64px, 9vw, 120px);
   background: var(--paper);
   scroll-margin-top: 80px;
 }
@@ -824,6 +815,7 @@ img { display:block;
     gap: 8px;
   }
   .portfolio-section {
+    padding-top: 140px;
     padding-left: 20px;
     padding-right: 20px;
   }
