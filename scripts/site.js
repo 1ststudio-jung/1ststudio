@@ -23,12 +23,11 @@ if (conversationFormEl) {
   const detailsPanel = conversationFormEl.querySelector("[data-conversation-details]");
   if (detailsToggle && detailsPanel) {
     detailsToggle.addEventListener("click", () => {
-      const isOpen = !detailsPanel.hidden;
-      detailsPanel.hidden = isOpen;
-      detailsToggle.classList.toggle("is-open", !isOpen);
+      const isOpen = detailsPanel.classList.toggle("is-open");
+      detailsToggle.classList.toggle("is-open", isOpen);
       detailsToggle.innerHTML = isOpen
-        ? '+ 자세히 작성하기 <span class="conversation-details-toggle-sub">(선택)</span>'
-        : '- 간단히 작성하기';
+        ? '- 간단히 작성하기'
+        : '+ 자세히 작성하기 <span class="conversation-details-toggle-sub">(선택)</span>';
     });
   }
 
@@ -66,7 +65,7 @@ if (conversationFormEl) {
       .then(() => {
         conversationFormEl.reset();
         if (messageField) messageField.style.height = "auto";
-        if (detailsPanel) detailsPanel.hidden = true;
+        if (detailsPanel) detailsPanel.classList.remove("is-open");
         if (detailsToggle) {
           detailsToggle.classList.remove("is-open");
           detailsToggle.innerHTML = '+ 자세히 작성하기 <span class="conversation-details-toggle-sub">(선택)</span>';
