@@ -364,6 +364,14 @@ if (portfolioFilters) {
   });
 }
 
+// FAQ 아코디언
+document.querySelectorAll(".faq-question").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const item = btn.closest(".faq-item");
+    if (item) item.classList.toggle("is-open");
+  });
+});
+
 // 스크롤 방향에 따라 헤더 숨김/등장
 const siteHeader = document.querySelector(".site-header");
 let lastScrollY = window.scrollY;
