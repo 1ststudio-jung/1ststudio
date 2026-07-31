@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta name="naver-site-verification" content="f968cf2dce7b325fd97c2bb73bad409a0df527b8" />
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="첫번째 스튜디오 포트폴리오. 인물, 브랜드, 반려동물 촬영." name="description"/>
+  <meta content="1ST STUDIO | Portfolio" property="og:title"/>
+  <meta content="website" property="og:type"/>
+  <title>
+   Portfolio — 1ST STUDIO
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=Dancing+Script:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet"/>
+  <link href="styles/site.css" rel="stylesheet"/>
+  <script defer="" src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js">
+  </script>
+  <script defer="" src="scripts/site.js">
+  </script>
+ </head>
+ <body>
+  <header class="site-header">
+   <a aria-label="1ST STUDIO home" class="brand" href="index.html">
+    <strong>
+     1ST STUDIO<span class="visually-hidden"> | Portrait Photographer Seoul</span>
+    </strong>
+   </a>
+   <nav aria-label="Primary navigation" class="main-nav">
+    <a href="index.html">
+     MAIN
+    </a>
+    <a class="is-current" href="portfolio.html">
+     PROJECTS
+    </a>
+    <button data-contact-open="" type="button">
+     CONTACT
+    </button>
+   </nav>
+  </header>
+
+
+  <main>
+
+    <section class="portfolio-section">
+     <div class="section-heading">
+      <p class="eyebrow">
+       projects
+      </p>
+     </div>
+
+     <div class="portfolio-filters" data-portfolio-filters="">
+      <button class="is-active" data-filter="all" type="button">All</button>
+      <button data-filter="portrait" type="button">Portrait</button>
+      <button data-filter="personal" type="button">Profile</button>
+      <button data-filter="pet" type="button">Pet</button>
+      <button data-filter="brand" type="button">Brand</button>
+     </div>
+
+     <div class="portfolio-grid reveal" data-portfolio-grid=""></div>
+
+    </section>
+
+  </main>
+
+
+  <aside aria-hidden="true" class="contact-drawer" data-contact-drawer="">
+   <div class="contact-panel">
+    <div class="contact-panel-body">
+
+     <div class="contact-visual">
+      <img alt="" src="image/nom20/nom03.jpg"/>
+      <p class="contact-visual-quote">
+       한 번의 상담으로,<br/>
+       기획부터 완성까지 함께합니다.
+      </p>
+     </div>
+
+     <div class="contact-panel-main">
+      <div class="contact-panel-head">
+       <p class="eyebrow">
+        Contact
+       </p>
+       <button class="contact-close" data-contact-close="" type="button">
+        Close
+       </button>
+      </div>
+
+<div class="conversation-form" data-conversation-form="">
+ <p class="conversation-intro">
+  편하게 문의 남겨주세요.
+ </p>
+
+ <form data-conversation-form-el>
+  <label>
+   <span>이름 또는 회사명</span>
+   <input type="text" name="name" placeholder="첫번째스튜디오" required>
+  </label>
+
+  <label>
+   <span>담당자 성함</span>
+   <input type="text" name="manager" placeholder="김정규" required>
+  </label>
+
+  <label>
+   <span>연락처</span>
+   <input type="text" name="contact" placeholder="010-0000-0000" required>
+  </label>
+
+  <label>
+   <span>문의 내용</span>
+   <textarea name="message" rows="1" placeholder="문의 내용" required></textarea>
+  </label>
+
+  <button type="button" class="conversation-details-toggle" data-details-toggle>
+   + 자세히 작성하기 <span class="conversation-details-toggle-sub">(선택)</span>
+  </button>
+
+  <div class="conversation-details" data-conversation-details hidden>
+
+   <label>
+    <span>촬영 목적</span>
+    <select name="purpose">
+     <option value="">선택 안 함</option>
+     <option value="개인 소장">개인 소장</option>
+     <option value="SNS/프로필용">SNS/프로필용</option>
+     <option value="브랜드 홍보">브랜드 홍보</option>
+     <option value="제품 상세페이지">제품 상세페이지</option>
+     <option value="기타">기타</option>
+    </select>
+   </label>
+
+   <label>
+    <span>희망 촬영 날짜</span>
+    <input type="text" name="shootDate" placeholder="예: 2026년 9월 중">
+   </label>
+
+   <label>
+    <span>결과물 마감 기한</span>
+    <input type="text" name="deadline" placeholder="예: 촬영 후 2주 이내">
+   </label>
+
+   <label>
+    <span>희망 촬영 장소</span>
+    <select name="location">
+     <option value="">선택 안 함</option>
+     <option value="스튜디오">스튜디오</option>
+     <option value="야외">야외</option>
+     <option value="자택">자택</option>
+     <option value="미정">미정</option>
+    </select>
+   </label>
+
+   <label>
+    <span>촬영 인원</span>
+    <input type="text" name="headcount" placeholder="예: 2명">
+   </label>
+
+   <label>
+    <span>촬영 대상</span>
+    <input type="text" name="subject" placeholder="예: 개인, 커플, 가족, 반려동물 등">
+   </label>
+
+   <label>
+    <span>원하는 톤/분위기</span>
+    <input type="text" name="mood" placeholder="예: 밝고 화사한 느낌">
+   </label>
+
+   <label>
+    <span>레퍼런스 링크</span>
+    <input type="text" name="reference" placeholder="핀터레스트, 인스타그램 링크 등">
+   </label>
+
+   <label>
+    <span>메이크업/헤어</span>
+    <select name="makeup">
+     <option value="">선택 안 함</option>
+     <option value="필요">필요</option>
+     <option value="불필요">불필요</option>
+     <option value="미정">미정</option>
+    </select>
+   </label>
+
+   <label>
+    <span>예상 예산</span>
+    <input type="text" name="budget" placeholder="협의 가능">
+   </label>
+
+   <label>
+    <span>브랜드명/제품명 (해당 시)</span>
+    <input type="text" name="brandName" placeholder="브랜드/제품 문의가 아니면 비워두세요">
+   </label>
+
+  </div>
+
+  <button type="submit" class="conversation-submit">
+   문의하기
+  </button>
+
+  <p class="conversation-response-time">
+   보통 24시간 이내에 답변드려요.
+  </p>
+ </form>
+
+ <div class="conversation-success" data-conversation-success hidden>
+  <p>문의가 접수되었습니다. 빠르게 연락드리겠습니다.</p>
+ </div>
+</div>
+    <div class="contact-info">
+    <div class="contact-row">
+     <span>
+      Email
+     </span>
+     <strong>
+1st_studio_@naver.com     </strong>
+    </div>
+    <div class="contact-row">
+     <span>
+      Instagram
+     </span>
+     <strong>
+      @1st._studio
+     </strong>
+    </div>
+    </div>
+     </div>
+    </div>
+   </div>
+  </aside>
+  <footer class="site-footer">
+   <div>
+    <strong>
+     1ST STUDIO
+    </strong>
+    <span>
+Portrait, Branding, Editorial    </span>
+    <span class="site-footer-detail">
+서울시 중랑구 용마산로 248    </span>
+    <span class="site-footer-detail">
+Mon-Sat 10:00-18:00 · Reservation Only    </span>
+   </div>
+   <nav aria-label="Footer links">
+    <a href="https://www.instagram.com/1st._studio/" rel="noreferrer" target="_blank">
+     Instagram
+    </a>
+    <a href="https://pf.kakao.com/" rel="noreferrer" target="_blank">
+     Kakaotalk
+    </a>
+    <a href="mailto:hello@jungkimstudio.com">
+     Email
+    </a>
+   </nav>
+   <p>
+    © 2026 1ST STUDIO. All Rights Reserved. Photographer based in Seoul.
+   </p>
+  </footer>
+
+<button class="floating-contact" data-contact-open="" type="button">
+ 문의하기
+</button>
+
+<!-- Portfolio Gallery -->
+<div id="imageViewer" class="image-viewer">
+
+    <button class="viewer-close">&times;</button>
+
+    <button class="viewer-prev">&#10094;</button>
+
+    <img id="viewerImage" src="" alt="">
+
+    <button class="viewer-next">&#10095;</button>
+
+    <div class="viewer-thumbs" id="viewerThumbs"></div>
+
+</div>
+ </body>
+</html>
