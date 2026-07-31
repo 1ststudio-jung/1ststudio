@@ -2,15 +2,12 @@ const contactDrawer = document.querySelector("[data-contact-drawer]");
 const contactOpeners = Array.from(document.querySelectorAll("[data-contact-open]"));
 const contactCloser = document.querySelector("[data-contact-close]");
 const revealItems = Array.from(document.querySelectorAll(".reveal"));
-const tabContainer = document.querySelector("[data-tabs]");
-const tabTriggers = Array.from(document.querySelectorAll("[data-tab-target]"));
-const tabPanels = Array.from(document.querySelectorAll("[data-tab-panel]"));
 const conversationForm = document.querySelector("[data-conversation-form]");
 const conversationFormEl = document.querySelector("[data-conversation-form-el]");
 const conversationSuccess = document.querySelector("[data-conversation-success]");
 
 // 구글 시트에 연동된 Apps Script 웹 앱 URL을 여기에 붙여넣으세요.
-const CONTACT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGezEeHHZsDPEDGmdNFreV462XnTo3Ng8ZX4pDK-YFfV8GVjLdSHg7tqd1S26ZbltuLg/exec";
+const CONTACT_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
 
 if (conversationFormEl) {
   const messageField = conversationFormEl.querySelector("textarea[name='message']");
@@ -88,42 +85,6 @@ if (conversationFormEl) {
   });
 }
 
-const revealVisibleItems = (scope) => {
-  Array.from(scope.querySelectorAll(".reveal")).forEach((item) => {
-    const rect = item.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.92) item.classList.add("is-visible");
-  });
-};
-
-const setActiveTab = (id, options = {}) => {
-  const nextPanel = tabPanels.find((panel) => panel.dataset.tabPanel === id);
-  if (!nextPanel) return;
-
-  tabPanels.forEach((panel) => {
-    const isActive = panel === nextPanel;
-    panel.hidden = !isActive;
-    panel.classList.toggle("is-active", isActive);
-  });
-
-  tabTriggers.forEach((trigger) => {
-    const isActive = trigger.dataset.tabTarget === id;
-    trigger.classList.toggle("is-current", isActive);
-  });
-
-  if (options.updateHash) {
-    history.pushState(null, "", `#${id}`);
-  }
-
-  if (options.scroll && tabContainer) {
-    tabContainer.scrollIntoView({
-      behavior: options.instant ? "auto" : "smooth",
-      block: "start"
-    });
-  }
-
-  window.requestAnimationFrame(() => revealVisibleItems(nextPanel));
-};
-
 const openContact = () => {
   contactDrawer?.classList.add("is-open");
   contactDrawer?.setAttribute("aria-hidden", "false");
@@ -141,11 +102,6 @@ const closeContact = () => {
   document.body.style.overflow = "";
 };
 
-const tabFromHash = () => {
-  const id = window.location.hash.replace("#", "");
-  return tabPanels.some((panel) => panel.dataset.tabPanel === id) ? id : null;
-};
-
 contactOpeners.forEach((button) => button.addEventListener("click", openContact));
 contactCloser?.addEventListener("click", closeContact);
 contactDrawer?.addEventListener("click", (event) => {
@@ -154,19 +110,6 @@ contactDrawer?.addEventListener("click", (event) => {
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeContact();
-});
-
-tabTriggers.forEach((trigger) => {
-  trigger.addEventListener("click", (event) => {
-    event.preventDefault();
-    setActiveTab(trigger.dataset.tabTarget, { scroll: true, updateHash: true });
-    closeContact();
-  });
-});
-
-window.addEventListener("hashchange", () => {
-  const id = tabFromHash();
-  setActiveTab(id || "main", { scroll: true });
 });
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -179,17 +122,11 @@ const revealObserver = new IntersectionObserver((entries) => {
 });
 
 revealItems.forEach((item) => revealObserver.observe(item));
-setActiveTab(tabFromHash() || "main");
 
 window.addEventListener("load", () => {
   if (window.lucide) window.lucide.createIcons();
   revealItems.slice(0, 3).forEach((item) => item.classList.add("is-visible"));
-  const id = tabFromHash();
-  setActiveTab(id || "main", { scroll: Boolean(id), instant: true });
 });
-
-
-
 
 
 
@@ -300,25 +237,6 @@ function closeViewer() {
     document.body.style.overflow = "";
 }
 
-viewerThumbs.addEventListener("click", e => {
-    const thumb = e.target.closest("img");
-    if (!thumb) return;
-    showImage(Number(thumb.dataset.index), null);
-});
-
-// 닫기
-viewerClose.addEventListener("click", closeViewer);
-
-// 배경 클릭
-imageViewer.addEventListener("click", e => {
-
-    if(e.target === imageViewer){
-
-        closeViewer();
-
-    }
-
-});
 function showImage(index, direction){
 
     // 처음/마지막에서는 더 이상 넘어가지 않음 (순환 없음)
@@ -347,58 +265,65 @@ function updateViewerNav(){
     viewerNext.style.display = currentIndex === currentProject.length - 1 ? "none" : "";
 }
 
-viewerPrev.addEventListener("click", () => {
+// 이미지 뷰어(라이트박스)가 이 페이지에 실제로 있을 때만 이벤트 연결
+// (index.html처럼 뷰어 자체가 없는 페이지에서는 이 블록 전체가 조용히 건너뛰어짐)
+if (imageViewer) {
 
-    showImage(currentIndex - 1, "prev");
+  viewerThumbs.addEventListener("click", e => {
+      const thumb = e.target.closest("img");
+      if (!thumb) return;
+      showImage(Number(thumb.dataset.index), null);
+  });
 
-});
+  viewerClose.addEventListener("click", closeViewer);
 
-viewerNext.addEventListener("click", () => {
+  imageViewer.addEventListener("click", e => {
+      if (e.target === imageViewer) {
+          closeViewer();
+      }
+  });
 
-    showImage(currentIndex + 1, "next");
+  viewerPrev.addEventListener("click", () => {
+      showImage(currentIndex - 1, "prev");
+  });
 
-});
-// ESC
-// 키보드 제어
-document.addEventListener("keydown", e => {
+  viewerNext.addEventListener("click", () => {
+      showImage(currentIndex + 1, "next");
+  });
 
-    // 이미지 뷰어가 열려있을 때
-    if (imageViewer.classList.contains("active")) {
+  document.addEventListener("keydown", e => {
+      if (imageViewer.classList.contains("active")) {
+          if (e.key === "ArrowRight") {
+              showImage(currentIndex + 1, "next");
+              return;
+          }
+          if (e.key === "ArrowLeft") {
+              showImage(currentIndex - 1, "prev");
+              return;
+          }
+          if (e.key === "Escape") {
+              closeViewer();
+              return;
+          }
+      }
+  });
 
-        if (e.key === "ArrowRight") {
-            showImage(currentIndex + 1, "next");
-            return;
-        }
+  let touchStartX = 0;
+  let touchEndX = 0;
 
-        if (e.key === "ArrowLeft") {
-            showImage(currentIndex - 1, "prev");
-            return;
-        }
+  imageViewer.addEventListener("touchstart", e => {
+      touchStartX = e.changedTouches[0].clientX;
+  });
 
-        if (e.key === "Escape") {
-            closeViewer();
-            return;
-        }
+  imageViewer.addEventListener("touchend", e => {
+      touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      if (diff > 50) showImage(currentIndex + 1, "next");
+      if (diff < -50) showImage(currentIndex - 1, "prev");
+  });
 
-    }
+}
 
-});
-let touchStartX = 0;
-let touchEndX = 0;
-
-imageViewer.addEventListener("touchstart", e => {
-    touchStartX = e.changedTouches[0].clientX;
-});
-
-imageViewer.addEventListener("touchend", e => {
-    touchEndX = e.changedTouches[0].clientX;
-
-    const diff = touchStartX - touchEndX;
-
-    if (diff > 50) showImage(currentIndex + 1, "next");
-    if (diff < -50) showImage(currentIndex - 1, "prev");
-});
-// 히어로 배경 슬라이드쇼 (확대 + 크로스페이드)
 // 히어로 배경 그룹 순환 (페이드 + 줌)
 function initHeroSlideshow() {
   const groups = document.querySelectorAll(".hero-bg-group");
