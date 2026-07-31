@@ -22,6 +22,19 @@ if (conversationFormEl) {
     messageField.addEventListener("input", autoGrow);
   }
 
+  const detailsToggle = conversationFormEl.querySelector("[data-details-toggle]");
+  const detailsPanel = conversationFormEl.querySelector("[data-conversation-details]");
+  if (detailsToggle && detailsPanel) {
+    detailsToggle.addEventListener("click", () => {
+      const isOpen = !detailsPanel.hidden;
+      detailsPanel.hidden = isOpen;
+      detailsToggle.classList.toggle("is-open", !isOpen);
+      detailsToggle.innerHTML = isOpen
+        ? '+ 자세히 작성하기 <span class="conversation-details-toggle-sub">(선택)</span>'
+        : '- 간단히 작성하기';
+    });
+  }
+
   conversationFormEl.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -31,7 +44,18 @@ if (conversationFormEl) {
       company: formData.get("name") || "",
       manager: formData.get("manager") || "",
       contact: formData.get("contact") || "",
-      message: formData.get("message") || ""
+      message: formData.get("message") || "",
+      purpose: formData.get("purpose") || "",
+      shootDate: formData.get("shootDate") || "",
+      deadline: formData.get("deadline") || "",
+      location: formData.get("location") || "",
+      headcount: formData.get("headcount") || "",
+      subject: formData.get("subject") || "",
+      mood: formData.get("mood") || "",
+      reference: formData.get("reference") || "",
+      makeup: formData.get("makeup") || "",
+      budget: formData.get("budget") || "",
+      brandName: formData.get("brandName") || ""
     };
 
     submitButton.disabled = true;
@@ -45,6 +69,11 @@ if (conversationFormEl) {
       .then(() => {
         conversationFormEl.reset();
         if (messageField) messageField.style.height = "auto";
+        if (detailsPanel) detailsPanel.hidden = true;
+        if (detailsToggle) {
+          detailsToggle.classList.remove("is-open");
+          detailsToggle.innerHTML = '+ 자세히 작성하기 <span class="conversation-details-toggle-sub">(선택)</span>';
+        }
         conversationFormEl.hidden = true;
         if (conversationSuccess) conversationSuccess.hidden = false;
       })
@@ -82,7 +111,7 @@ const setActiveTab = (id, options = {}) => {
   });
 
   if (options.updateHash) {
-    history.replaceState(null, "", `#${id}`);
+    history.pushState(null, "", `#${id}`);
   }
 
   if (options.scroll && tabContainer) {
@@ -137,7 +166,7 @@ tabTriggers.forEach((trigger) => {
 
 window.addEventListener("hashchange", () => {
   const id = tabFromHash();
-  if (id) setActiveTab(id, { scroll: true });
+  setActiveTab(id || "main", { scroll: true });
 });
 
 const revealObserver = new IntersectionObserver((entries) => {
