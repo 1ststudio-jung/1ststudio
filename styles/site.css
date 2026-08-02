@@ -698,12 +698,38 @@ img { display:block;
 }
 
 .conversation-success {
-  margin-top: 18px;
-  padding: 16px 0;
-  border-top: 1px solid rgba(0, 0, 0, .1);
-  font-size: 13px;
+  margin-top: 28px;
+  padding: 48px 24px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 28px rgba(23, 20, 17, .08);
+  text-align: center;
+}
+.conversation-success-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+}
+.conversation-success-title {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.conversation-success-desc {
+  margin: 0;
+  font-size: 14px;
   line-height: 1.7;
-  color: var(--soft-ink);
+  color: var(--muted);
 }
 
 .site-footer {
