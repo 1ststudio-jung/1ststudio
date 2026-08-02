@@ -31,6 +31,14 @@ if (conversationFormEl) {
     });
   }
 
+  conversationFormEl.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    const tag = event.target.tagName;
+    if (tag === "INPUT" || tag === "SELECT") {
+      event.preventDefault();
+    }
+  });
+
   conversationFormEl.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -71,7 +79,10 @@ if (conversationFormEl) {
           detailsToggle.innerHTML = '+ 자세히 작성하기 <span class="conversation-details-toggle-sub">(선택)</span>';
         }
         conversationFormEl.hidden = true;
-        if (conversationSuccess) conversationSuccess.hidden = false;
+        if (conversationSuccess) {
+          conversationSuccess.hidden = false;
+          conversationSuccess.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       })
       .catch(() => {
         alert("전송에 실패했습니다. 잠시 후 다시 시도해주세요.");
