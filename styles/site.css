@@ -75,7 +75,7 @@ img { display:block;
   white-space: nowrap;
 }
 .brand strong {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: .22em;
 }
@@ -91,7 +91,7 @@ img { display:block;
   display: inline-flex;
   align-items: center;
   color: #111111;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: .22em;
   text-transform: uppercase;
