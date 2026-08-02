@@ -348,6 +348,118 @@ img { display:block;
   color: #fff;
 }
 
+/* Price page */
+.price-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 104px 40px 96px;
+}
+.price-notice {
+  margin: 0 0 56px;
+  padding: 18px 24px;
+  background: rgba(23, 20, 17, .03);
+  border-radius: 6px;
+}
+.price-notice p {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.price-group {
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--line);
+}
+.price-group:last-of-type {
+  border-bottom: none;
+}
+.price-group h3 {
+  margin: 0 0 16px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.price-group h3 span {
+  margin-left: 10px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.price-detail-list {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+}
+.price-detail-list li {
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 14px;
+  color: var(--soft-ink);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.price-detail-list li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.price-table td {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--ink);
+}
+.price-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+}
+.price-cta {
+  margin-top: 64px;
+  padding: 40px;
+  background: #faf7f2;
+  border-radius: 6px;
+  text-align: center;
+}
+.price-cta p {
+  margin: 0 0 20px;
+  color: var(--soft-ink);
+  font-size: 14px;
+}
+.price-cta-button {
+  display: inline-block;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(166, 59, 46, .28);
+  transition: background .2s ease, transform .2s ease;
+}
+.price-cta-button:hover {
+  background: #8a3120;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 700px) {
+  .price-section {
+    padding: 140px 24px 64px;
+  }
+}
+
 /* FAQ */
 .faq-section {
   max-width: 720px;
