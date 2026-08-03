@@ -541,7 +541,7 @@ img { display:block;
     padding: 0 24px;
   }
   .trio-grid {
-    repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr);
     padding: 0 24px;
     gap: 8px;
   }
