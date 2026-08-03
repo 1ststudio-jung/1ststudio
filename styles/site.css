@@ -541,9 +541,9 @@ img { display:block;
     padding: 0 24px;
   }
   .trio-grid {
-    grid-template-columns: 1fr;
+    repeat(3,1fr);
     padding: 0 24px;
-    gap: 16px;
+    gap: 8px;
   }
   .intro-text {
     margin: 64px auto;
