@@ -99,6 +99,7 @@ img { display:block;
   display: inline-flex;
   align-items: center;
   color: #111111;
+  font-family:var(--script);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: .22em;
