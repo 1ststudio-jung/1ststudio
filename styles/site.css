@@ -82,7 +82,7 @@ img { display:block;
   white-space: nowrap;
 }
 .brand strong {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 500;
   letter-spacing: .22em;
   font-family:var(--headerfont);
@@ -99,7 +99,6 @@ img { display:block;
   display: inline-flex;
   align-items: center;
   color: #111111;
-  font-family:var(--script);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: .22em;
