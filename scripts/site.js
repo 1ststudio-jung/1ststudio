@@ -186,6 +186,20 @@ fetch("portfolio.json")
           `;
         })
         .join("");
+
+      // 메인 페이지 등 다른 곳에서 ?category=portrait 형태로 넘어온 경우, 해당 카테고리로 자동 필터링
+      const urlCategory = new URLSearchParams(window.location.search).get("category");
+      const filtersEl = document.querySelector("[data-portfolio-filters]");
+      if (urlCategory && filtersEl) {
+        const matchBtn = filtersEl.querySelector(`button[data-filter="${urlCategory}"]`);
+        if (matchBtn) {
+          filtersEl.querySelectorAll("button").forEach((b) => b.classList.remove("is-active"));
+          matchBtn.classList.add("is-active");
+          document.querySelectorAll(".portfolio-card").forEach((card) => {
+            card.hidden = card.dataset.category !== urlCategory;
+          });
+        }
+      }
     }
 
     // 히어로 배경: 무작위 16장을 4장씩 4묶음으로 나눠 그룹 단위로 페이드
