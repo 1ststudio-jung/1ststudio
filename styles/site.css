@@ -1,9 +1,3 @@
-@font-face {
-  font-family: "headerfont";
-  src: url("../fonts/headerfont.woff2") format("woff2");
-  font-weight: normal;
-  font-display: swap;
-}
 :root {
   --bg: #ffffff;
   --paper: #ffffff;
@@ -17,7 +11,6 @@
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   --script: "Dancing Script", cursive;
   --sans: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --headerfont:"headerfont", sdrif;
 }
 
 * { box-sizing: border-box; }
@@ -82,10 +75,9 @@ img { display:block;
   white-space: nowrap;
 }
 .brand strong {
-  font-size: 28px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: .22em;
-  font-family:var(--headerfont);
 }
 .main-nav {
   display: flex;
@@ -99,7 +91,7 @@ img { display:block;
   display: inline-flex;
   align-items: center;
   color: #111111;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: .22em;
   text-transform: uppercase;
@@ -296,8 +288,8 @@ img { display:block;
   line-height: 1.9;
 }
 
-/* Three photo grid */
-.trio-grid {
+/* Category links (main page → portfolio) */
+.category-links {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 40px;
@@ -305,11 +297,33 @@ img { display:block;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
-.trio-item img {
+.category-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.category-link img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
+  transition: transform .6s ease;
+}
+.category-link:hover img {
+  transform: scale(1.06);
+}
+.category-link span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 0 16px;
+  background: linear-gradient(180deg, rgba(23, 20, 17, 0) 0%, rgba(23, 20, 17, .55) 100%);
+  color: #fff;
+  font-family: var(--script);
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
 }
 
 /* Centered intro text block */
@@ -548,10 +562,14 @@ img { display:block;
     margin: 64px auto;
     padding: 0 24px;
   }
-  .trio-grid {
-    grid-template-columns: repeat(3,1fr);
+  .category-links {
+    grid-template-columns: repeat(3, 1fr);
     padding: 0 24px;
     gap: 8px;
+  }
+  .category-link span {
+    font-size: 14px;
+    padding: 12px 0 10px;
   }
   .intro-text {
     margin: 64px auto;
@@ -1019,6 +1037,59 @@ img { display:block;
 .portfolio-grid.is-fading {
   opacity: 0;
 }
+.portfolio-bridge {
+  margin-top: 80px;
+  padding: 48px 24px;
+  background: #faf7f2;
+  border-radius: 6px;
+  text-align: center;
+}
+.portfolio-bridge p {
+  margin: 0 0 24px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.portfolio-bridge-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.portfolio-bridge-link,
+.portfolio-bridge-button {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.portfolio-bridge-link {
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+}
+.portfolio-bridge-link:hover {
+  background: var(--ink);
+  color: #fff;
+}
+.portfolio-bridge-button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(166, 59, 46, .28);
+}
+.portfolio-bridge-button:hover {
+  background: #8a3120;
+  transform: translateY(-1px);
+}
+
 .portfolio-card {
  position:relative;
     display:block;
@@ -1487,14 +1558,14 @@ CTA
 }
 
     .brand strong{
-        font-size:14px;
+        font-size:11px;
         letter-spacing:.15em;
     }
 
 
     .main-nav a,
     .main-nav button{
-        font-size:12px;
+        font-size:10px;
     }
 
 
