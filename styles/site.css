@@ -425,7 +425,7 @@ img { display:block;
 .why-us {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px 96px;
+  padding: 24px 40px 96px;
 }
 .why-us .section-heading {
   text-align: left;
@@ -475,12 +475,10 @@ img { display:block;
 
 .process-inline {
   margin-top: 56px;
-  padding-top: 40px;
-  border-top: 1px solid var(--line);
   text-align: left;
 }
 .process-inline h3 {
-  margin: 0 0 20px;
+  margin: 0 0 10px;
   font-family: var(--sans);
   font-size: 13px;
   font-weight: 700;
@@ -488,12 +486,18 @@ img { display:block;
   text-transform: uppercase;
   color: var(--muted);
 }
+.process-inline-desc {
+  margin: 0 0 24px;
+  color: var(--soft-ink);
+  font-size: 13.5px;
+}
 .process-steps {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   border-top: 1px solid var(--line);
 }
 .process-step-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -506,6 +510,16 @@ img { display:block;
 }
 .process-step-item:not(:first-child) {
   padding-left: 20px;
+}
+.process-step-item:not(:first-child)::before {
+  content: "→";
+  position: absolute;
+  left: -9px;
+  top: 0;
+  padding: 0 3px;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 13px;
 }
 .process-step-num {
   font-family: var(--serif);
