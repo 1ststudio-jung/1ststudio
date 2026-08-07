@@ -60,8 +60,8 @@
        <p class="hero-lead">
         사람과 브랜드가 가진 가치를 가장 효과적인 이미지로 완성합니다.
        </p>
-       <a class="text-button text-button--light" href="portfolio.html">
-        More Portfolio
+       <a class="hero-reserve-button" href="https://booking.naver.com/booking/13/bizes/YOUR_NAVER_BOOKING_ID" target="_blank" rel="noreferrer">
+        예약하기
        </a>
       </div>
       <div class="hero-note reveal">
@@ -76,19 +76,44 @@
 
 
 <!-- CATEGORY LINKS -->
-     <section class="category-links reveal">
-      <a class="category-link" href="portfolio.html?category=portrait">
-       <img alt="" src="image/nom20/nom03.jpg"/>
-       <span>Portrait</span>
-      </a>
-      <a class="category-link" href="portfolio.html?category=brand">
-       <img alt="" src="image/nom33/nom01.jpg"/>
-       <span>Brand</span>
-      </a>
-      <a class="category-link" href="portfolio.html?category=pet">
-       <img alt="" src="image/nom12/nom03.jpg"/>
-       <span>Pet</span>
-      </a>
+     <section class="portfolio-teaser reveal">
+      <div class="section-heading">
+       <h2>1ST STUDIO 네 가지 촬영 카테고리</h2>
+      </div>
+      <div class="category-links">
+       <a class="category-link" href="portfolio.html?category=personal">
+        <img alt="" src="image/nom20/nom03.jpg"/>
+        <div class="category-link-caption">
+         <h3>프로필 촬영</h3>
+         <span>Profile</span>
+         <p>자연스러운 표정과 분위기를 담은 인물 사진</p>
+        </div>
+       </a>
+       <a class="category-link" href="portfolio.html?category=pet">
+        <img alt="" src="image/nom12/nom03.jpg"/>
+        <div class="category-link-caption">
+         <h3>펫 촬영</h3>
+         <span>Pet</span>
+         <p>반려동물의 편안한 모습을 그대로</p>
+        </div>
+       </a>
+       <a class="category-link" href="portfolio.html?category=portrait">
+        <img alt="" src="image/nom05/nom01.jpg"/>
+        <div class="category-link-caption">
+         <h3>컨셉 촬영</h3>
+         <span>Concept</span>
+         <p>레퍼런스와 무드보드로 완성하는 컨셉 사진</p>
+        </div>
+       </a>
+       <a class="category-link" href="portfolio.html?category=brand">
+        <img alt="" src="image/nom33/nom01.jpg"/>
+        <div class="category-link-caption">
+         <h3>브랜드 촬영</h3>
+         <span>Brand</span>
+         <p>제품과 브랜드의 톤앤매너를 담은 촬영</p>
+        </div>
+       </a>
+      </div>
      </section>
 
 <!-- SECOND TEXT BLOCK -->
@@ -107,6 +132,8 @@
        문의하기
       </button>
      </section>
+
+
   </main>
 
 
@@ -292,9 +319,21 @@ Mon-Sat 10:00-18:00 · Reservation Only    </span>
    </p>
   </footer>
 
-<button class="floating-contact" data-contact-open="" type="button">
- 문의하기
-</button>
+<div class="floating-cluster">
+ <a class="floating-option" href="https://pf.kakao.com/_hczWn" target="_blank" rel="noreferrer">
+  <span class="floating-option-label">카톡 문의</span>
+  <span class="floating-option-icon floating-option-icon--kakao">
+   <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#391B1B" d="M12 3C6.48 3 2 6.48 2 10.8c0 2.76 1.85 5.19 4.64 6.57-.2.75-.73 2.73-.84 3.15-.13.52.19.51.4.37.17-.11 2.66-1.81 3.74-2.55.67.1 1.36.15 2.06.15 5.52 0 10-3.48 10-7.79C22 6.48 17.52 3 12 3z"/></svg>
+  </span>
+ </a>
+ <a class="floating-option" href="https://talk.naver.com/YOUR_NAVER_TALK_ID" target="_blank" rel="noreferrer">
+  <span class="floating-option-label">네이버 톡톡 문의</span>
+  <span class="floating-option-icon floating-option-icon--naver">N</span>
+ </a>
+ <button class="floating-contact" data-contact-open="" type="button">
+  문의하기
+ </button>
+</div>
 
  </body>
 </html>
