@@ -1047,53 +1047,6 @@ img { display:block;
   font-size: 12px;
 }
 
-.conversation-details-toggle {
-  align-self: flex-start;
-  margin: -4px 0 0;
-  padding: 0;
-  border: none;
-  background: none;
-  color: var(--soft-ink);
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.conversation-details-toggle:hover {
-  color: var(--accent);
-}
-.conversation-details-toggle-sub {
-  font-weight: 400;
-  color: var(--muted);
-  text-decoration: none;
-}
-
-.conversation-details {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-10px);
-  margin-top: 0;
-  padding: 0 20px;
-  background: rgba(23, 20, 17, .02);
-  border: 1px solid transparent;
-  border-radius: 6px;
-  transition: max-height .45s var(--ease), opacity .3s ease, transform .35s var(--ease), margin-top .35s var(--ease), padding .35s var(--ease), border-color .3s ease;
-}
-.conversation-details.is-open {
-  max-height: 1000px;
-  opacity: 1;
-  transform: translateY(0);
-  margin-top: 4px;
-  padding: 20px;
-  border-color: var(--line);
-  border-style: dashed;
-}
 .conversation-submit.is-loading::after {
   content: "";
   width: 12px;
