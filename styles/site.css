@@ -343,6 +343,8 @@ img { display:block;
 }
 .category-link {
   display: block;
+  overflow: hidden;
+  border-radius: 12px;
   transition: transform .4s ease;
 }
 .category-link:hover {
@@ -355,7 +357,8 @@ img { display:block;
   display: block;
 }
 .category-link-caption {
-  padding-top: 16px;
+  padding: 16px 18px 20px;
+  background: #f4f1ec;
 }
 .category-link-caption h3 {
   margin: 0 0 2px;
