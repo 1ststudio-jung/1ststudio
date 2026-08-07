@@ -19,26 +19,6 @@ if (conversationFormEl) {
     messageField.addEventListener("input", autoGrow);
   }
 
-  const detailsToggle = conversationFormEl.querySelector("[data-details-toggle]");
-  const detailsPanel = conversationFormEl.querySelector("[data-conversation-details]");
-  if (detailsToggle && detailsPanel) {
-    detailsToggle.addEventListener("click", () => {
-      const isOpen = detailsPanel.classList.toggle("is-open");
-      detailsToggle.classList.toggle("is-open", isOpen);
-      detailsToggle.innerHTML = isOpen
-        ? '- 간단히 작성하기'
-        : '+ 자세히 작성하기 <span class="conversation-details-toggle-sub">(선택)</span>';
-    });
-  }
-
-  conversationFormEl.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter") return;
-    const tag = event.target.tagName;
-    if (tag === "INPUT" || tag === "SELECT") {
-      event.preventDefault();
-    }
-  });
-
   conversationFormEl.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -46,20 +26,8 @@ if (conversationFormEl) {
     const formData = new FormData(conversationFormEl);
     const payload = {
       company: formData.get("name") || "",
-      manager: formData.get("manager") || "",
       contact: formData.get("contact") || "",
-      message: formData.get("message") || "",
-      purpose: formData.get("purpose") || "",
-      shootDate: formData.get("shootDate") || "",
-      deadline: formData.get("deadline") || "",
-      location: formData.get("location") || "",
-      headcount: formData.get("headcount") || "",
-      subject: formData.get("subject") || "",
-      mood: formData.get("mood") || "",
-      reference: formData.get("reference") || "",
-      makeup: formData.get("makeup") || "",
-      budget: formData.get("budget") || "",
-      brandName: formData.get("brandName") || ""
+      message: formData.get("message") || ""
     };
 
     submitButton.disabled = true;
@@ -73,11 +41,6 @@ if (conversationFormEl) {
       .then(() => {
         conversationFormEl.reset();
         if (messageField) messageField.style.height = "auto";
-        if (detailsPanel) detailsPanel.classList.remove("is-open");
-        if (detailsToggle) {
-          detailsToggle.classList.remove("is-open");
-          detailsToggle.innerHTML = '+ 자세히 작성하기 <span class="conversation-details-toggle-sub">(선택)</span>';
-        }
         conversationFormEl.hidden = true;
         if (conversationSuccess) {
           conversationSuccess.hidden = false;
