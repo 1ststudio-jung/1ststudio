@@ -1267,11 +1267,11 @@ img { display:block;
     border-radius:20px;
     background:transparent;
     color:var(--soft-ink);
-    font-family:var(--script);
-    font-size:18px;
-    font-weight:600;
-    letter-spacing:.02em;
-    text-transform:none;
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
     cursor:pointer;
     transition:background .2s ease, border-color .2s ease, color .2s ease;
 }
@@ -1301,16 +1301,10 @@ img { display:block;
 .portfolio-bridge {
   margin-top: 80px;
   padding: 48px 24px;
-  background: #faf7f2;
+  background: #fff;
+  border: 1px solid var(--line);
   border-radius: 6px;
   text-align: center;
-}
-.portfolio-bridge p {
-  margin: 0 0 24px;
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--ink);
 }
 .portfolio-bridge-actions {
   display: flex;
@@ -1341,13 +1335,13 @@ img { display:block;
   color: #fff;
 }
 .portfolio-bridge-button {
-  border: none;
-  background: var(--accent);
+  border: 1px solid var(--ink);
+  background: var(--ink);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(166, 59, 46, .28);
 }
 .portfolio-bridge-button:hover {
-  background: #8a3120;
+  background: #fff;
+  color: var(--ink);
   transform: translateY(-1px);
 }
 
@@ -1410,17 +1404,17 @@ img { display:block;
 }
 .portfolio-overlay-title{
   color:#fff;
-  font-family:var(--script);
-  font-size:26px;
-  font-weight:600;
+  font-family:var(--sans);
+  font-size:16px;
+  font-weight:700;
 }
 .portfolio-overlay-meta{
   color:rgba(255,255,255,.85);
-  font-family:var(--script);
-  font-size:16px;
+  font-family:var(--sans);
+  font-size:11px;
   font-weight:600;
-  letter-spacing:.02em;
-  text-transform:none;
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
 
 /*=============================
