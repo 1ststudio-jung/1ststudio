@@ -165,7 +165,7 @@ fetch("portfolio.json")
     });
 
     if (portfolioGridEl) {
-      portfolioGridEl.innerHTML = items
+      portfolioGridEl.innerHTML = [...items].reverse()
         .map((item) => {
           const labelText =
             item.category === "brand"
