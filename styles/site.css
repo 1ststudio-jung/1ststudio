@@ -314,20 +314,25 @@ img { display:block;
   padding: 96px 40px;
 }
 .portfolio-teaser .section-heading {
-  text-align: center;
+  text-align: left;
+}
+.portfolio-teaser .section-heading .eyebrow {
+  color: var(--muted);
+  font-weight: 600;
 }
 .portfolio-teaser .section-heading h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(26px, 3vw, 32px);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 30px);
+  letter-spacing: -.01em;
   margin: 0 0 10px;
   color: var(--ink);
 }
-.portfolio-teaser .section-heading p {
-  margin: 0 auto;
-  max-width: 420px;
-  color: var(--soft-ink);
-  font-size: 14px;
+.section-heading-desc {
+  margin: 0;
+  max-width: 480px;
+  color: var(--muted);
+  font-size: 13.5px;
   line-height: 1.7;
 }
 .category-links {
@@ -338,25 +343,25 @@ img { display:block;
 }
 .category-link {
   display: block;
+  transition: transform .4s ease;
+}
+.category-link:hover {
+  transform: scale(1.035);
 }
 .category-link img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
-  transition: transform .6s ease;
-}
-.category-link:hover img {
-  transform: scale(1.05);
 }
 .category-link-caption {
   padding-top: 16px;
 }
 .category-link-caption h3 {
   margin: 0 0 2px;
-  font-family: var(--serif);
-  font-size: 17px;
-  font-weight: 500;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 700;
   color: var(--ink);
 }
 .category-link-caption span {
@@ -373,6 +378,53 @@ img { display:block;
   color: var(--muted);
   font-size: 12.5px;
   line-height: 1.6;
+  font-family: var(--sans);
+}
+
+/* Why Us */
+.why-us {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 96px;
+}
+.why-us .section-heading {
+  text-align: left;
+}
+.why-us .section-heading .eyebrow {
+  color: var(--muted);
+  font-weight: 600;
+}
+.why-us .section-heading h2 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 30px);
+  letter-spacing: -.01em;
+  margin: 0;
+  color: var(--ink);
+}
+.why-us-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.why-us-card {
+  padding: 28px 24px;
+  background: #faf7f2;
+  border-radius: 8px;
+}
+.why-us-card h3 {
+  margin: 0 0 10px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.why-us-card p {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 13px;
+  line-height: 1.7;
 }
 
 /* Centered intro text block */
@@ -624,6 +676,17 @@ img { display:block;
   }
   .category-link-caption p {
     font-size: 12px;
+  }
+  .why-us {
+    padding: 0 24px 64px;
+  }
+  .why-us-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .why-us-card {
+    padding: 22px 18px;
   }
   .intro-text {
     margin: 64px auto;
