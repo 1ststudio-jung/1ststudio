@@ -1,6 +1,3 @@
-const contactDrawer = document.querySelector("[data-contact-drawer]");
-const contactOpeners = Array.from(document.querySelectorAll("[data-contact-open]"));
-const contactCloser = document.querySelector("[data-contact-close]");
 const revealItems = Array.from(document.querySelectorAll(".reveal"));
 const conversationForm = document.querySelector("[data-conversation-form]");
 const conversationFormEl = document.querySelector("[data-conversation-form-el]");
@@ -57,33 +54,6 @@ if (conversationFormEl) {
       });
   });
 }
-
-const openContact = () => {
-  contactDrawer?.classList.add("is-open");
-  contactDrawer?.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-
-  if (conversationFormEl && conversationFormEl.hidden) {
-    conversationFormEl.hidden = false;
-    if (conversationSuccess) conversationSuccess.hidden = true;
-  }
-};
-
-const closeContact = () => {
-  contactDrawer?.classList.remove("is-open");
-  contactDrawer?.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
-};
-
-contactOpeners.forEach((button) => button.addEventListener("click", openContact));
-contactCloser?.addEventListener("click", closeContact);
-contactDrawer?.addEventListener("click", (event) => {
-  if (event.target === contactDrawer) closeContact();
-});
-
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeContact();
-});
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
