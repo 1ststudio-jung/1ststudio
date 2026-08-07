@@ -4,31 +4,35 @@ backend:
   branch: main
   # base_url 필요 없음 - 로그인 화면에서 "Sign In with Token" 버튼으로 로그인
 
+media_folder: "image"
+public_folder: "/image"
+
 collections:
   - name: "portfolio"
     label: "포트폴리오"
-    folder: "content/portfolio"
-    create: true
-    slug: "{{fields.id}}"
-    format: "json"
-    extension: "json"
-    summary: "{{fields.id}} — {{fields.category}}"
-    media_folder: "/image/{{slug}}"
-    public_folder: "/image/{{slug}}"
-    fields:
-      - { label: "ID (새 프로젝트마다 안 겹치게, 예: nom50)", name: "id", widget: "string" }
-      - { label: "제목", name: "title", widget: "string", required: false, default: "" }
-      - { label: "날짜 (예: JUL 2026)", name: "date", widget: "string", required: false, default: "" }
-      - label: "카테고리"
-        name: "category"
-        widget: "select"
-        options:
-          - { label: "Portrait", value: "portrait" }
-          - { label: "Profile", value: "personal" }
-          - { label: "Pet", value: "pet" }
-          - { label: "Brand", value: "brand" }
-      - { label: "업체명 (Brand일 때만 입력)", name: "brand", widget: "string", required: false, default: "" }
-      - label: "사진들 (첫 번째 사진이 썸네일로 사용됨)"
-        name: "images"
-        widget: "list"
-        field: { label: "이미지", name: "image", widget: "image" }
+    files:
+      - file: "portfolio.json"
+        label: "프로젝트 목록"
+        name: "portfolio"
+        fields:
+          - label: "프로젝트 목록"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.id}} — {{fields.category}}"
+            fields:
+              - { label: "ID (새 프로젝트마다 안 겹치게, 예: nom54)", name: "id", widget: "string" }
+              - { label: "제목", name: "title", widget: "string", required: false, default: "" }
+              - { label: "날짜 (예: JUL 2026)", name: "date", widget: "string", required: false, default: "" }
+              - label: "카테고리"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Portrait", value: "portrait" }
+                  - { label: "Profile", value: "personal" }
+                  - { label: "Pet", value: "pet" }
+                  - { label: "Brand", value: "brand" }
+              - { label: "업체명 (Brand일 때만 입력)", name: "brand", widget: "string", required: false, default: "" }
+              - label: "사진들 (첫 번째 사진이 썸네일로 사용됨)"
+                name: "images"
+                widget: "list"
+                field: { label: "이미지", name: "image", widget: "image" }
