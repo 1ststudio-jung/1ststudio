@@ -397,27 +397,6 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 });
 
-// 플로팅 문의 버튼 - 터치 기기에서는 hover가 없으므로, 첫 탭엔 옵션만 펼치고 두번째 탭에 실제 동작
-const floatingCluster = document.querySelector(".floating-cluster");
-if (floatingCluster) {
-  floatingCluster.addEventListener("click", (e) => {
-    const isTouch = window.matchMedia("(hover: none)").matches;
-    const mainButton = e.target.closest(".floating-contact");
-    const alreadyOpen = floatingCluster.classList.contains("is-open");
-
-    if (isTouch && mainButton && !alreadyOpen) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      floatingCluster.classList.add("is-open");
-    }
-  }, true);
-
-  document.addEventListener("click", (e) => {
-    if (!floatingCluster.contains(e.target)) {
-      floatingCluster.classList.remove("is-open");
-    }
-  });
-}
 
 // 스크롤 방향에 따라 헤더 숨김/등장
 const siteHeader = document.querySelector(".site-header");
