@@ -413,7 +413,7 @@ img { display:block;
 }
 .why-us-card {
   padding: 28px 24px;
-  background: #faf7f2;
+  background: var(--ink);
   border-radius: 8px;
 }
 .why-us-card h3 {
@@ -421,11 +421,11 @@ img { display:block;
   font-family: var(--sans);
   font-size: 15px;
   font-weight: 700;
-  color: var(--ink);
+  color: #fff;
 }
 .why-us-card p {
   margin: 0;
-  color: var(--soft-ink);
+  color: rgba(255, 255, 255, .68);
   font-size: 13px;
   line-height: 1.7;
 }
