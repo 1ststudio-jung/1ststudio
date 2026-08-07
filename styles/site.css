@@ -398,7 +398,7 @@ img { display:block;
   background: #fff;
 }
 .category-link-caption h3 {
-  margin: 0 0 2px;
+  margin: 0 0 8px;
   font-family: var(--sans);
   font-size: 16px;
   font-weight: 700;
