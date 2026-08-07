@@ -432,6 +432,55 @@ img { display:block;
   line-height: 1.7;
 }
 
+.process-inline {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+}
+.process-inline h3 {
+  margin: 0 0 20px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.process-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.process-step-item {
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.process-step-arrow {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.final-cta {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 40px 120px;
+  text-align: center;
+}
+.final-cta p {
+  margin: 0 0 24px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
 /* Centered intro text block */
 .intro-text {
   max-width: 640px;
@@ -692,6 +741,17 @@ img { display:block;
   }
   .why-us-card {
     padding: 22px 18px;
+  }
+  .process-inline {
+    margin-top: 36px;
+    padding-top: 28px;
+  }
+  .process-step-item {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+  .final-cta {
+    padding: 0 24px 72px;
   }
   .intro-text {
     margin: 64px auto;
