@@ -7,6 +7,15 @@ const conversationSuccess = document.querySelector("[data-conversation-success]"
 const CONTACT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxAvjUkZ358ZHmXiWPqRq-i64qFOYjuQKRNTrEzY0EhXjAT4Kyd6Jx9kVgm39l0wLna/exec";
 
 if (conversationFormEl) {
+  const privacyCheckbox = conversationFormEl.querySelector('input[name="privacyConsent"]');
+  if (privacyCheckbox) {
+    privacyCheckbox.addEventListener("invalid", () => {
+      privacyCheckbox.setCustomValidity("개인정보 수집 및 이용에 동의하셔야 문의가 진행됩니다.");
+    });
+    privacyCheckbox.addEventListener("change", () => {
+      privacyCheckbox.setCustomValidity("");
+    });
+  }
   const messageField = conversationFormEl.querySelector("textarea[name='message']");
   if (messageField) {
     const autoGrow = () => {
