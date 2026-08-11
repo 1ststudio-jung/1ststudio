@@ -1063,8 +1063,9 @@ img { display:block;
 .privacy-consent {
   margin-top: -4px;
 }
-.privacy-consent-check {
+.conversation-form label.privacy-consent-check {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 8px;
   cursor: pointer;
