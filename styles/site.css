@@ -693,6 +693,13 @@ img { display:block;
   text-align: right;
   font-weight: 600;
 }
+.price-table-note {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
 .price-cta {
   margin-top: 64px;
   padding: 40px;
