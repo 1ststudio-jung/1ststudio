@@ -547,11 +547,17 @@ img { display:block;
   text-align: center;
 }
 .final-cta p {
-  margin: 0 0 24px;
+  margin: 0 0 10px;
   font-family: var(--sans);
   font-size: 15px;
   font-weight: 600;
   color: var(--ink);
+}
+.final-cta p.final-cta-sub {
+  margin: 0 0 24px;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--soft-ink);
 }
 
 /* Centered intro text block */
