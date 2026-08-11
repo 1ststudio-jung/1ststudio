@@ -82,7 +82,7 @@ img { display:block;
 }
 .brand strong {
   font-family:var(--headerfont);
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 500;
   letter-spacing: .22em;
 }
@@ -98,7 +98,7 @@ img { display:block;
   display: inline-flex;
   align-items: center;
   color: #111111;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: .22em;
   text-transform: uppercase;
@@ -1845,7 +1845,7 @@ CTA
 }
 
     .brand strong{
-        font-size:11px;
+        font-size:18px;
         letter-spacing:.15em;
     }
 
