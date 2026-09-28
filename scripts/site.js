@@ -147,14 +147,42 @@ fetch("portfolio.json")
     // 메인 히어로: 한 화면에 한 장만 보여주고 5장의 이미지를 순환합니다.
     const heroSlidesEl = document.querySelector("[data-hero-slides]");
     if (heroSlidesEl) {
-      const heroPicks = [
-        "image/nom32/nom01.jpg",
-        "image/nom34/nom01.jpg",
-        "image/nom04/nom01.jpg",
-        "image/nom45/nom01.jpg",
-        "image/nom32/nom01.jpg"
-      ];
+      const heroImages = [
+  "image/nom01/nom01.jpg",
+  "image/nom04/nom08.jpg",
+  "image/nom10/nom01.jpg",
+  "image/nom15/nom01.jpg",
+  "image/nom16/nom06.jpg",
+  "image/nom18/nom010.jpg",
+  "image/nom19/nom05.jpg",
+  "image/nom20/nom03.jpg",
+  "image/nom21/nom02.jpg",
+  "image/nom23/nom08.jpg",
+  "image/nom27/nom01.jpg",
+  "image/nom28/nom01.jpg",
+  "image/nom30/nom01.jpg",
+  "image/nom31/nom04.jpg",
+  "image/nom32/nom01.jpg",
+  "image/nom33/nom06.jpg",
+  "image/nom35/nom01.jpg",
+  "image/nom37/nom06.jpg",
+  "image/nom39/nom03.jpg",
+  "image/nom40/nom01.jpg",
+  "image/nom41/nom03.jpg"
+];
 
+function shuffle(array) {
+  const copied = [...array];
+
+  for (let i = copied.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copied[i], copied[j]] = [copied[j], copied[i]];
+  }
+
+  return copied;
+}
+
+const heroPicks = shuffle(heroImages).slice(0, 4);
       heroSlidesEl.innerHTML = heroPicks
         .map((src, i) => `<div class="hero-bg-group${i === 0 ? " is-active" : ""}"><img alt="" src="${src}"></div>`)
         .join("");
