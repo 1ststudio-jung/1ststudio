@@ -358,17 +358,19 @@ img { display:block;
   line-height: 1.7;
 }
 .category-links {
-  margin-top: 0;
+  margin-top: 48px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  grid-template-columns: 1.4fr 0.8fr 0.9fr;
+  grid-template-rows: auto auto;
+  gap: 24px;
 }
+
 .category-link {
   display: block;
   overflow: hidden;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  transition: transform .4s ease;
+  border-radius: 0;
+  border: none;
+  transition: none;
 }
 .category-link:hover {
   transform: scale(1.035);
@@ -416,8 +418,8 @@ img { display:block;
   transform: scale(1.04);
 }
 .category-link-caption {
-  padding: 16px 18px 20px;
-  background: #fff;
+  padding: 16px 0 20px;
+  background: transparent;
 }
 .category-link-caption h3 {
   margin: 0 0 8px;
@@ -442,6 +444,21 @@ img { display:block;
   line-height: 1.6;
   font-family: var(--sans);
 }
+@media (min-width: 701px) {
+
+  .category-link:nth-child(1) {
+    grid-row: span 2;
+  }
+
+  .category-link:nth-child(2) {
+    margin-top: 48px;
+  }
+
+  .category-link:nth-child(3) {
+    margin-top: -24px;
+  }
+
+}
 
 /* Why Us */
 .why-us {
@@ -450,17 +467,20 @@ img { display:block;
   padding: 24px 40px 96px;
 }
 .why-us-grid {
-  margin-top: 0;
+  margin-top: 48px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
 }
+
 .why-us-card {
-  padding: 36px 26px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  transition: transform .3s ease, box-shadow .3s ease;
+  padding: 34px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  transition: none;
 }
 .why-us-card:hover {
   transform: scale(1.03);
@@ -861,9 +881,9 @@ img { display:block;
     padding: 64px 24px;
   }
   .category-links {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px 12px;
-    margin-top: 32px;
+    grid-template-columns: 1fr;
+  gap: 42px;
+  margin-top: 32px;
   }
   .category-link-caption h3 {
     font-size: 15px;
@@ -874,14 +894,20 @@ img { display:block;
   .why-us {
     padding: 0 24px 64px;
   }
-  .why-us-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 28px;
-  }
-  .why-us-card {
-    padding: 22px 18px;
-  }
+ .why-us-grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.why-us-card {
+  padding: 24px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
   .process-inline {
     margin-top: 36px;
     padding-top: 28px;
