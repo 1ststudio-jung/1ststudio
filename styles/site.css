@@ -447,7 +447,7 @@ img { display:block;
 .why-us {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 40px 96px;
+  padding: 96px 40px;
 }
 .why-us-grid {
   margin-top: 0;
@@ -879,9 +879,9 @@ img { display:block;
   .category-link-caption p {
     font-size: 12px;
   }
-  .why-us {
-    padding: 0 24px 64px;
-  }
+ .why-us {
+  padding: 64px 24px;
+}
   .why-us-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
