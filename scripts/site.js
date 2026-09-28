@@ -144,23 +144,19 @@ fetch("portfolio.json")
       }
     }
 
-    // 히어로 배경: 무작위 16장을 4장씩 4묶음으로 나눠 그룹 단위로 페이드
+    // 메인 히어로: 한 화면에 한 장만 보여주고 5장의 이미지를 순환합니다.
     const heroSlidesEl = document.querySelector("[data-hero-slides]");
     if (heroSlidesEl) {
-      const allImages = items.flatMap((item) => item.images);
-      const shuffled = allImages.sort(() => Math.random() - 0.5);
-      const heroPicks = shuffled.slice(0, 16);
+      const heroPicks = [
+        "image/nom32/nom01.jpg",
+        "image/nom34/nom01.jpg",
+        "image/nom04/nom01.jpg",
+        "image/nom45/nom01.jpg",
+        "image/nom32/nom01.jpg"
+      ];
 
-      const groups = [];
-      for (let i = 0; i < heroPicks.length; i += 4) {
-        groups.push(heroPicks.slice(i, i + 4));
-      }
-
-      heroSlidesEl.innerHTML = groups
-        .map((group, gi) => {
-          const imgs = group.map((src) => `<img alt="" src="${src}">`).join("");
-          return `<div class="hero-bg-group${gi === 0 ? " is-active" : ""}">${imgs}</div>`;
-        })
+      heroSlidesEl.innerHTML = heroPicks
+        .map((src, i) => `<div class="hero-bg-group${i === 0 ? " is-active" : ""}"><img alt="" src="${src}"></div>`)
         .join("");
 
       initHeroSlideshow();
@@ -290,17 +286,27 @@ if (imageViewer) {
 
 }
 
-// 히어로 배경 그룹 순환 (페이드 + 줌)
+// 히어로 배경 순환 + 하단 숫자/화살표 컨트롤
 function initHeroSlideshow() {
-  const groups = document.querySelectorAll(".hero-bg-group");
-  if (groups.length > 1) {
-    let idx = 0;
-    setInterval(() => {
-      groups[idx].classList.remove("is-active");
-      idx = (idx + 1) % groups.length;
-      groups[idx].classList.add("is-active");
-    }, 6000);
-  }
+  const groups = Array.from(document.querySelectorAll(".hero-bg-group"));
+  const currentEl = document.querySelector("[data-hero-current]");
+  const prevBtn = document.querySelector("[data-hero-prev]");
+  const nextBtn = document.querySelector("[data-hero-next]");
+  if (groups.length <= 1) return;
+
+  let idx = 0;
+
+  const show = (nextIndex) => {
+    groups[idx].classList.remove("is-active");
+    idx = (nextIndex + groups.length) % groups.length;
+    groups[idx].classList.add("is-active");
+    if (currentEl) currentEl.textContent = String(idx + 1).padStart(2, "0");
+  };
+
+  prevBtn?.addEventListener("click", () => show(idx - 1));
+  nextBtn?.addEventListener("click", () => show(idx + 1));
+
+  setInterval(() => show(idx + 1), 6000);
 }
 
 // 포트폴리오 카테고리 필터
