@@ -25,14 +25,42 @@ if (conversationFormEl) {
     messageField.addEventListener("input", autoGrow);
   }
 
+  // 문의 유형에 따라 브랜드 추가 항목 표시 (?type=brand 로 들어오면 브랜드가 미리 선택됨)
+  const brandFields = conversationFormEl.querySelector("[data-brand-fields]");
+  const typeRadios = conversationFormEl.querySelectorAll('input[name="type"]');
+  const syncType = () => {
+    const checked = conversationFormEl.querySelector('input[name="type"]:checked');
+    if (brandFields) brandFields.hidden = !(checked && checked.value === "brand");
+  };
+  typeRadios.forEach((r) => r.addEventListener("change", syncType));
+  const presetType = new URLSearchParams(window.location.search).get("type");
+  if (presetType) {
+    const target = conversationFormEl.querySelector(`input[name="type"][value="${presetType}"]`);
+    if (target) target.checked = true;
+  }
+  syncType();
+
   conversationFormEl.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const submitButton = conversationFormEl.querySelector(".conversation-submit");
     const formData = new FormData(conversationFormEl);
+    // 스팸봇이 숨겨진 칸을 채웠다면 조용히 성공 처리만 하고 전송하지 않음
+    if (formData.get("website")) {
+      conversationFormEl.hidden = true;
+      if (conversationSuccess) conversationSuccess.hidden = false;
+      return;
+    }
+
+    const isBrand = formData.get("type") === "brand";
     const payload = {
+      type: isBrand ? "브랜드·기업" : "개인",
       company: formData.get("name") || "",
       contact: formData.get("contact") || "",
+      purpose: isBrand ? (formData.get("purpose") || "") : "",
+      schedule: isBrand ? (formData.get("schedule") || "") : "",
+      budget: isBrand ? (formData.get("budget") || "") : "",
+      reference: isBrand ? (formData.get("reference") || "") : "",
       message: formData.get("message") || ""
     };
 
@@ -391,3 +419,122 @@ if (siteHeader) {
     lastScrollY = currentScrollY;
   });
 }
+
+
+/* =====================================================
+   VIDEO / BEHIND THE SCENES  (videos.json 을 읽어서 표시)
+   - type "youtube": src 에 유튜브 영상 ID
+   - type "file"   : src 에 mp4 경로, poster 에 썸네일 이미지 경로
+   ===================================================== */
+(function () {
+  const grids = document.querySelectorAll("[data-video-grid]");
+  if (!grids.length) return;
+
+  const esc = (s) => String(s || "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const CATEGORY_LABEL = { film: "Film", behind: "Behind the scenes" };
+  let videos = [];
+
+  const thumbOf = (v) =>
+    v.poster || (v.type === "youtube" ? `https://i.ytimg.com/vi/${encodeURIComponent(v.src)}/hqdefault.jpg` : "");
+
+  const cardHTML = (v) => {
+    const vertical = v.aspect === "9:16";
+    const thumb = thumbOf(v);
+    const media = thumb
+      ? `<img src="${esc(thumb)}" alt="${esc(v.title)}" loading="lazy">`
+      : `<video src="${esc(v.src)}#t=0.5" preload="metadata" muted playsinline></video>`;
+    const meta = [v.date, CATEGORY_LABEL[v.category]].filter(Boolean).join(" · ");
+    return `
+      <article class="video-card${vertical ? " is-vertical" : ""}" data-category="${esc(v.category)}">
+        <button class="video-card-btn" type="button" data-video-id="${esc(v.id)}" aria-label="${esc(v.title)} 재생">
+          <span class="video-thumb">${media}<span class="video-play" aria-hidden="true"></span></span>
+          <span class="video-info">
+            ${v.title ? `<span class="video-title">${esc(v.title)}</span>` : ""}
+            <span class="video-meta">${esc(meta)}</span>
+          </span>
+        </button>
+      </article>`;
+  };
+
+  /* ----- 재생 모달 ----- */
+  let modal;
+  const ensureModal = () => {
+    if (modal) return modal;
+    modal = document.createElement("div");
+    modal.className = "video-modal";
+    modal.innerHTML = `<button class="video-modal-close" type="button" aria-label="닫기">&times;</button><div class="video-modal-stage"></div>`;
+    document.body.appendChild(modal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal || e.target.closest(".video-modal-close")) closeVideo();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) closeVideo();
+    });
+    return modal;
+  };
+
+  function openVideo(v) {
+    const m = ensureModal();
+    const stage = m.querySelector(".video-modal-stage");
+    const vertical = v.aspect === "9:16";
+    stage.className = "video-modal-stage" + (vertical ? " is-vertical" : "");
+    stage.innerHTML =
+      v.type === "youtube"
+        ? `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.src)}?autoplay=1&rel=0&playsinline=1" title="${esc(v.title)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`
+        : `<video src="${esc(v.src)}" controls autoplay playsinline></video>`;
+    m.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeVideo() {
+    if (!modal) return;
+    modal.classList.remove("active");
+    modal.querySelector(".video-modal-stage").innerHTML = ""; // 재생 중지
+    document.body.style.overflow = "";
+  }
+
+  /* ----- 목록 렌더 ----- */
+  const render = (grid, list) => {
+    const limit = Number(grid.dataset.limit) || list.length;
+    grid.innerHTML = list.slice(0, limit).map(cardHTML).join("");
+  };
+
+  fetch("videos.json")
+    .then((res) => res.json())
+    .then((data) => {
+      videos = [...(data.items || [])].reverse(); // 최신(JSON 맨 아래)이 맨 앞
+      const teaser = document.querySelector("[data-video-teaser]");
+      const emptyEl = document.querySelector("[data-video-empty]");
+
+      if (!videos.length) {
+        if (emptyEl) emptyEl.hidden = false; // 영상 페이지: 준비중 문구
+        return;                              // 메인: 섹션 숨김 유지
+      }
+      if (teaser) teaser.hidden = false;
+      grids.forEach((g) => render(g, videos));
+    })
+    .catch((err) => console.error("videos.json 로드 실패:", err));
+
+  grids.forEach((grid) =>
+    grid.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-video-id]");
+      if (!btn) return;
+      const v = videos.find((x) => x.id === btn.dataset.videoId);
+      if (v) openVideo(v);
+    })
+  );
+
+  const filters = document.querySelector("[data-video-filters]");
+  if (filters) {
+    filters.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-filter]");
+      if (!btn) return;
+      filters.querySelectorAll("button").forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      const f = btn.dataset.filter;
+      document.querySelectorAll(".video-card").forEach((c) => {
+        c.hidden = !(f === "all" || c.dataset.category === f);
+      });
+    });
+  }
+})();
