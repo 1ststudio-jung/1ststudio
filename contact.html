@@ -34,6 +34,9 @@
     <a href="portfolio.html">
      PORTFOLIO
     </a>
+    <a href="video.html">
+     VIDEO
+    </a>
     <a href="price.html">
      PRICE
     </a>
@@ -59,6 +62,17 @@
  </p>
 
  <form data-conversation-form-el>
+  <div class="inquiry-type" role="radiogroup" aria-label="문의 유형">
+   <label>
+    <input type="radio" name="type" value="personal" checked>
+    <span>프로필 · 반려동물 · 개인 촬영</span>
+   </label>
+   <label>
+    <input type="radio" name="type" value="brand">
+    <span>브랜드 · 기업 · 영상 촬영</span>
+   </label>
+  </div>
+
   <label>
    <span>이름 또는 회사명</span>
    <input type="text" name="name" placeholder="첫번째스튜디오" required>
@@ -67,6 +81,37 @@
   <label>
    <span>연락처 (전화번호 또는 이메일)</span>
    <input type="text" name="contact" placeholder="010-0000-0000 또는 이메일 주소" required>
+  </label>
+
+  <div class="brand-fields" data-brand-fields hidden>
+   <label>
+    <span>촬영 목적</span>
+    <select name="purpose">
+     <option value="">선택해주세요</option>
+     <option>브랜드·제품 이미지</option>
+     <option>기업·임직원 프로필</option>
+     <option>룩북·뷰티·에디토리얼</option>
+     <option>영상 (스케치·브랜드 필름·숏폼)</option>
+     <option>기타</option>
+    </select>
+   </label>
+   <label>
+    <span>희망 촬영 시기</span>
+    <input type="text" name="schedule" placeholder="예: 12월 둘째 주 / 미정">
+   </label>
+   <label>
+    <span>예산 범위 (선택)</span>
+    <input type="text" name="budget" placeholder="예: 100~200만원 / 협의 희망">
+   </label>
+   <label>
+    <span>레퍼런스 링크 (선택)</span>
+    <input type="text" name="reference" placeholder="인스타그램, 유튜브, 핀터레스트 등">
+   </label>
+  </div>
+
+  <label class="hp-field" aria-hidden="true">
+   <span>웹사이트</span>
+   <input type="text" name="website" tabindex="-1" autocomplete="off">
   </label>
 
   <label>
