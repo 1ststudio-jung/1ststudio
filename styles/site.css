@@ -2604,3 +2604,166 @@ CTA
   .final-cta-content > span { font-size: 8px; }
   .final-cta .intro-text-contact { padding: 7px 14px; font-size: 8px; }
 }
+
+
+/* ---------- VIDEO / BEHIND THE SCENES ---------- */
+.film-teaser {
+  max-width: 1200px;
+  padding: 18px 40px 56px;
+}
+.film-teaser .section-heading { margin-bottom: 18px; }
+.film-teaser .section-heading h2 {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 400;
+}
+.film-teaser-more {
+  display: block;
+  width: fit-content;
+  margin: 22px auto 0;
+  color: var(--ink);
+  font-size: 13px;
+  letter-spacing: .04em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 3px;
+}
+.video-section { padding-bottom: 56px; }
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px 8px;
+  align-items: start;
+}
+.video-section .video-grid { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.video-card[hidden] { display: none; }
+.video-card-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.video-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--dark);
+}
+.video-card.is-vertical .video-thumb { aspect-ratio: 9 / 16; }
+.video-thumb img,
+.video-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .7s var(--ease);
+}
+.video-card-btn:hover .video-thumb img,
+.video-card-btn:hover .video-thumb video { transform: scale(1.03); }
+.video-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 54px;
+  height: 54px;
+  margin: -27px 0 0 -27px;
+  border: 1px solid rgba(255, 255, 255, .85);
+  border-radius: 50%;
+  background: rgba(23, 20, 17, .28);
+}
+.video-play::after {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 17px;
+  border-left: 15px solid #fff;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+}
+.video-info { display: block; padding: 10px 2px 0; }
+.video-title { display: block; font-size: 14px; color: var(--ink); line-height: 1.4; }
+.video-meta { display: block; margin-top: 3px; font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+.video-empty { text-align: center; color: var(--muted); font-size: 14px; padding: 60px 0; }
+.video-card-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 9, 8, .94);
+}
+.video-modal.active { display: flex; }
+.video-modal-stage {
+  width: min(92vw, 1100px);
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.video-modal-stage.is-vertical {
+  width: auto;
+  height: min(88vh, 900px);
+  aspect-ratio: 9 / 16;
+  max-width: 92vw;
+}
+.video-modal-stage iframe,
+.video-modal-stage video { width: 100%; height: 100%; border: 0; display: block; }
+.video-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 980px) {
+  .video-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .film-teaser { padding: 12px 18px 36px; }
+  .video-section .video-grid { padding: 0 18px; }
+  .video-grid { grid-template-columns: 1fr; gap: 18px; }
+  .video-card.is-vertical { max-width: 70%; margin: 0 auto; }
+}
+
+/* ---------- 문의 유형 / 브랜드 추가 항목 ---------- */
+.inquiry-type {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.inquiry-type label {
+  flex: 1;
+  margin: 0;
+  cursor: pointer;
+}
+.inquiry-type input { position: absolute; opacity: 0; pointer-events: none; }
+.conversation-form .inquiry-type label span {
+  display: block;
+  padding: 12px 10px;
+  border: 1px solid var(--line);
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  transition: border-color .2s, color .2s, background .2s;
+}
+.inquiry-type input:checked + span {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+.inquiry-type input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+.brand-fields { display: flex; flex-direction: column; gap: 18px; }
+.brand-fields[hidden] { display: none; }
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
