@@ -93,6 +93,8 @@ img { display:block;
   letter-spacing: .22em;
 }
 .main-nav {
+  font-family: "NavFont", var(--sans);
+  position:relative;
   display: flex;
   align-items: center;
   gap: clamp(22px, 4vw, 52px);
