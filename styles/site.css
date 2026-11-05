@@ -93,14 +93,15 @@ img { display:block;
   letter-spacing: .22em;
 }
 .main-nav {
-  
+  font-family: "NavFont", var(--sans);
+  position:relative;
   display: flex;
   align-items: center;
   gap: clamp(22px, 4vw, 52px);
 }
-.main-nav a{font-family: "NavFont", var(--sans);
-  position:relative;},
+.main-nav a,
 .main-nav button {
+  font-family: "NavFont", var(--sans);
   position: relative;
   min-height: 38px;
   display: inline-flex;
