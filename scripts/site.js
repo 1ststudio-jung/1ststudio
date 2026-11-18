@@ -157,16 +157,16 @@ fetch("portfolio.json")
         })
         .join("");
 
-      // 메인 페이지 등 다른 곳에서 ?category=portrait 형태로 넘어온 경우, 해당 카테고리로 자동 필터링
+      // 처음 보여줄 카테고리: 주소에 ?category=pet 처럼 있으면 그 카테고리, 없으면 맨 앞 버튼(Portrait)
       const urlCategory = new URLSearchParams(window.location.search).get("category");
       const filtersEl = document.querySelector("[data-portfolio-filters]");
-      if (urlCategory && filtersEl) {
-        const matchBtn = filtersEl.querySelector(`button[data-filter="${urlCategory}"]`);
-        if (matchBtn) {
-          filtersEl.querySelectorAll("button").forEach((b) => b.classList.remove("is-active"));
-          matchBtn.classList.add("is-active");
+      if (filtersEl) {
+        const buttons = Array.from(filtersEl.querySelectorAll("button[data-filter]"));
+        const startBtn = buttons.find((b) => b.dataset.filter === urlCategory) || buttons[0];
+        if (startBtn) {
+          buttons.forEach((b) => b.classList.toggle("is-active", b === startBtn));
           document.querySelectorAll(".portfolio-card").forEach((card) => {
-            card.hidden = card.dataset.category !== urlCategory;
+            card.hidden = card.dataset.category !== startBtn.dataset.filter;
           });
         }
       }
