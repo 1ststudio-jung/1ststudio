@@ -648,19 +648,6 @@
       ]
     },
     {
-      "id": "nom31",
-      "title": "",
-      "date": "JUN 2026",
-      "category": "portrait",
-      "brand": "",
-      "images": [
-        "image/nom31/nom01.jpg",
-        "image/nom31/nom02.jpg",
-        "image/nom31/nom03.jpg",
-        "image/nom31/nom04.jpg"
-      ]
-    },
-    {
       "id": "nom32",
       "title": "",
       "date": "JUN 2026",
@@ -715,24 +702,6 @@
         "image/nom34/nom010.jpg",
         "image/nom34/nom011.jpg",
         "image/nom34/nom012.jpg"
-      ]
-    },
-    {
-      "id": "nom35",
-      "title": "",
-      "date": "MAY 2026",
-      "category": "portrait",
-      "brand": "",
-      "images": [
-        "image/nom35/nom01.jpg",
-        "image/nom35/nom02.jpg",
-        "image/nom35/nom03.jpg",
-        "image/nom35/nom04.jpg",
-        "image/nom35/nom05.jpg",
-        "image/nom35/nom06.jpg",
-        "image/nom35/nom07.jpg",
-        "image/nom35/nom08.jpg",
-        "image/nom35/nom09.jpg"
       ]
     },
     {
@@ -960,28 +929,6 @@
         "image/nom47/nom013.jpg",
         "image/nom47/nom014.jpg",
         "image/nom47/nom015.jpg"
-      ]
-    },
-    {
-      "id": "nom48",
-      "title": "",
-      "date": "APR 2026",
-      "category": "portrait",
-      "brand": "",
-      "images": [
-        "image/nom48/nom013.jpg",
-        "image/nom48/nom01.jpg",
-        "image/nom48/nom02.jpg",
-        "image/nom48/nom03.jpg",
-        "image/nom48/nom04.jpg",
-        "image/nom48/nom05.jpg",
-        "image/nom48/nom06.jpg",
-        "image/nom48/nom07.jpg",
-        "image/nom48/nom08.jpg",
-        "image/nom48/nom09.jpg",
-        "image/nom48/nom010.jpg",
-        "image/nom48/nom011.jpg",
-        "image/nom48/nom012.jpg"
       ]
     },
     {
