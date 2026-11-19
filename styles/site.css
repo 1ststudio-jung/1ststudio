@@ -12,7 +12,7 @@
   --ease: cubic-bezier(.22, 1, .36, 1);
   --serif: "Cormorant Garamond", "Noto Serif KR", Georgia, serif;
   --label: "Jost", Pretendard, -apple-system, "Segoe UI", sans-serif;
-  --sans: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --sans: "IBM Plex Sans KR", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --headerfont: "myfont", sans-serif;
   --pad: clamp(20px, 5vw, 72px);
   --section: clamp(72px, 10vw, 140px);
@@ -378,3 +378,77 @@ img { display: block; max-width: 100%; }
   .intro-text-contact, .price-cta-button, .portfolio-bridge-button { padding: 16px 32px; }
 }
 .inquiry-type label { position: relative; }
+
+
+/* =========================================================
+   포인트 컬러 · 가독성 보강 (브론즈 포인트)
+   ========================================================= */
+:root { --accent: #7d5f2f; --accent-light: #c9aa78; --bg-alt: #ece7de; }
+:focus-visible { outline-color: var(--accent); }
+.eyebrow, .section-heading .eyebrow, .faq-group-title, .price-group-num { color: var(--accent); }
+.main-nav a:hover { color: var(--accent); }
+.main-nav .is-current { color: var(--accent); }
+.portfolio-filters button.is-active { color: var(--ink); border-bottom-color: var(--accent); }
+.portfolio-filters button:hover { color: var(--accent); }
+.film-teaser-more, .portfolio-bridge-link { border-bottom-color: var(--accent); }
+.why-us { background: var(--bg-alt); border-top: 0; }
+.why-us-card { border-top-color: var(--accent); }
+.why-us-num { color: var(--accent); }
+.process-step-num { color: var(--accent-light); }
+.process-step-item { border-top-color: #5a5146; }
+.hero-kicker { color: var(--accent-light); }
+.price-table td:last-child { color: var(--accent); font-weight: 500; }
+.price-group { border-top-color: #cfc6b8; }
+.faq-section { border-top-color: var(--accent); }
+.faq-item.is-open .faq-question { color: var(--accent); }
+
+.final-cta { margin: 0 clamp(12px, 1.7vw, 24px); background: var(--dark); color: #f4f1ec; }
+.final-cta-content span { color: #a39b90; }
+.final-cta .intro-text-contact { border-color: var(--accent-light); color: var(--accent-light); }
+.final-cta .intro-text-contact:hover { background: var(--accent-light); color: var(--dark); }
+.price-cta-button:hover, .portfolio-bridge-button:hover, .conversation-submit:hover { background: var(--accent); border-color: var(--accent); color: #fff; opacity: 1; }
+.conversation-form input[type="text"]:focus, .conversation-form select:focus, .conversation-form textarea:focus { border-bottom-color: var(--accent); outline: none; }
+
+/* =========================================================
+   데스크톱(≥ 981px)만 글자 크기 키움 — 모바일은 그대로
+   ========================================================= */
+@media (min-width: 981px) {
+  body { font-size: 16px; }
+  .site-header { padding: 32px var(--pad); }
+  .brand strong { font-size: 34px; }
+  .main-nav a { font-size: 14px; letter-spacing: .24em; }
+  .eyebrow, .section-heading .eyebrow { font-size: 13px; }
+  .section-heading h2 { font-size: clamp(48px, 5.2vw, 76px); }
+  .section-heading-desc, .page-title-desc { font-size: 17px; }
+  .page-title h1 { font-size: clamp(72px, 8vw, 120px); }
+  .main-hero { min-height: min(84vh, 820px); }
+  .hero-lead { font-size: 21px; }
+  .hero-kicker, .hero-note, .hero-slider-control { font-size: 12px; }
+  .category-link-overlay span { font-size: 14px; }
+  .category-link-overlay p { font-size: 15px; }
+  .why-us-num, .process-step-num { font-size: 42px; }
+  .why-us-card h3 { font-size: 15px; }
+  .why-us-card p { font-size: 16px; }
+  .process-step-label { font-size: 19px; }
+  .process-step-sub { font-size: 14px; }
+  .final-cta-content span { font-size: 17px; }
+  .intro-text-contact, .price-cta-button, .portfolio-bridge-button, .conversation-submit { font-size: 13px; }
+  .portfolio-filters button { font-size: 13px; }
+  .price-notice p { font-size: 15px; }
+  .price-group h3 { font-size: clamp(36px, 3.8vw, 52px); }
+  .price-group-num { font-size: 12px; }
+  .price-detail-list li { font-size: 15px; }
+  .price-table td { font-size: 18px; }
+  .price-table-note { font-size: 14px; }
+  .faq-group-title { font-size: 13px; }
+  .faq-question { font-size: 18px; }
+  .faq-answer p { font-size: 16px; }
+  .conversation-intro { font-size: 16px; }
+  .conversation-form label > span { font-size: 12px; }
+  .conversation-form input[type="text"], .conversation-form select, .conversation-form textarea { font-size: 18px; }
+  .contact-row span { font-size: 12px; }
+  .contact-row strong { font-size: 16px; }
+  .video-title { font-size: 17px; }
+  .site-footer span, .site-footer p { font-size: 14px; }
+  .site-footer nav { font-size: 12px; }
+}
